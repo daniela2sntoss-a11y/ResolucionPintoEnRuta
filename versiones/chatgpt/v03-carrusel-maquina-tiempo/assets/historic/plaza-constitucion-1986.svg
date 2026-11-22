@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-labelledby="title desc">
+<title id="title">Plaza de la Constitución de Pinto, recreación histórica</title>
+<desc id="desc">Ilustración documental en tonos sepia de una plaza castellana con soportales de arcos de medio punto, balconadas, galerías de madera, tejados de teja y coches de época.</desc>
+<defs>
+  <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#ddd4c2"/><stop offset="1" stop-color="#f0e6d3"/></linearGradient>
+  <linearGradient id="ground" x2="0" y2="1"><stop stop-color="#b9aa91"/><stop offset="1" stop-color="#82745f"/></linearGradient>
+  <pattern id="paper" width="28" height="28" patternUnits="userSpaceOnUse"><circle cx="4" cy="7" r=".8" fill="#6b5945" opacity=".16"/><circle cx="19" cy="20" r=".6" fill="#6b5945" opacity=".13"/></pattern>
+  <pattern id="brick" width="34" height="18" patternUnits="userSpaceOnUse"><path d="M0 0H34M0 9H34M17 0V9M0 9V18M34 9V18" stroke="#8b6047" stroke-width="1.5" opacity=".45"/></pattern>
+  <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="2" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feComponentTransfer><feFuncA type="table" tableValues="0 .12"/></feComponentTransfer><feBlend in="SourceGraphic" mode="multiply"/></filter>
+</defs>
+<rect width="1200" height="700" fill="url(#sky)"/>
+<path d="M0 430 0 185 100 146 190 166 260 130 370 170 470 133 575 178 690 145 800 169 918 142 1030 173 1200 130V470Z" fill="#d3c4ab" stroke="#6f604e" stroke-width="5"/>
+<!-- left block: whitewashed upper floor and portico -->
+<path d="M0 233 230 176 460 207 460 508 0 508Z" fill="#d8cbb7" stroke="#5e5144" stroke-width="7"/>
+<path d="M0 233 230 176 460 207 460 250 0 280Z" fill="#79634d"/>
+<path d="M0 233 230 176 460 207 460 222 230 196 0 250Z" fill="#a17b58"/>
+<path d="M0 278 460 247V365H0Z" fill="#d1c0a5"/>
+<path d="M0 291 460 262" stroke="#75624c" stroke-width="7"/>
+<g fill="#75614b" stroke="#594c3e" stroke-width="4"><path d="M28 364V294h10v70M145 358V286h10v72M263 352V279h10v73M380 347V271h10v76"/></g>
+<g stroke="#594c3e" stroke-width="5" fill="none"><path d="M0 366h460M24 365v91M151 365v91M270 365v91M389 365v91"/></g>
+<g fill="#6f5740" stroke="#463c32" stroke-width="3"><path d="M40 291v-56h66v52M178 282v-57h67v52M310 276v-58h68v53"/></g>
+<g stroke="#463c32" stroke-width="3" fill="none"><path d="M40 291h66M40 260h66M178 282h67M178 250h67M310 276h68M310 245h68"/><path d="M50 235v56m15-56v56m15-56v56m15-56v56M188 225v57m16-57v57m16-57v57m16-57v57M320 218v58m16-58v58m16-58v58m16-58v58"/></g>
+<!-- central town hall / square -->
+<path d="M465 206 700 147 945 188V513H465Z" fill="#e0d3be" stroke="#5c5043" stroke-width="7"/>
+<path d="M465 206 700 147 945 188 945 220 700 184 465 239Z" fill="#876849"/>
+<path d="M465 233 700 180 945 216" fill="none" stroke="#594b3d" stroke-width="8"/>
+<path d="M478 264 700 214 933 251V345H478Z" fill="#cbb99f"/>
+<g fill="#80634a" stroke="#55483a" stroke-width="4"><path d="M503 345a45 45 0 0 1 90 0v165h-90Z"/><path d="M610 345a45 45 0 0 1 90 0v165h-90Z"/><path d="M717 345a45 45 0 0 1 90 0v165h-90Z"/><path d="M824 345a45 45 0 0 1 90 0v165h-90Z"/></g>
+<g fill="#e5d8c2"><path d="M518 510V346a30 30 0 0 1 60 0v164Z"/><path d="M625 510V346a30 30 0 0 1 60 0v164Z"/><path d="M732 510V346a30 30 0 0 1 60 0v164Z"/><path d="M839 510V346a30 30 0 0 1 60 0v164Z"/></g>
+<path d="M478 342h455M478 510h455" stroke="#5a4939" stroke-width="8"/>
+<g fill="#6b5946" stroke="#4d4134" stroke-width="4"><rect x="530" y="259" width="43" height="56"/><rect x="637" y="246" width="43" height="56"/><rect x="744" y="254" width="43" height="56"/><rect x="851" y="266" width="43" height="56"/></g>
+<g stroke="#594b3d" stroke-width="5" fill="none"><path d="M530 315h43m-43-27h43M637 302h43m-43-27h43M744 310h43m-43-27h43M851 322h43m-43-27h43"/></g>
+<!-- right block with timber gallery -->
+<path d="M940 210 1080 170 1200 200V520H940Z" fill="#d6c4a7" stroke="#5d4e3e" stroke-width="7"/>
+<path d="M940 210 1080 170 1200 200V238L1080 210 940 248Z" fill="#8b694c"/>
+<g stroke="#594737" stroke-width="7" fill="none"><path d="M965 282h235M965 360h235M976 244v120m52-120v120m52-120v120m52-120v120m52-120v120"/></g>
+<g fill="#776047" stroke="#514235" stroke-width="4"><path d="M987 280v-33h32v33M1040 280v-33h32v33M1093 280v-33h32v33M1145 280v-33h32v33"/></g>
+<g stroke="#514235" stroke-width="4"><path d="M987 248h32m-32 16h32M1040 248h32m-32 16h32M1093 248h32m-32 16h32M1145 248h32m-32 16h32"/></g>
+<path d="M956 369h244" stroke="#fff0d7" stroke-width="8"/>
+<!-- plaza pavement -->
+<path d="M0 512H1200V700H0Z" fill="url(#ground)"/>
+<g fill="none" stroke="#ded0b8" stroke-width="3" opacity=".65"><path d="M0 570 1200 530M0 635 1200 625M0 690 1200 690M130 512 290 700M390 512 490 700M660 512 690 700M930 512 880 700M1110 512 1030 700"/></g>
+<!-- period cars -->
+<g transform="translate(170 540)"><path d="M0 36 16 10h96l28 26 8 22H-7Z" fill="#554d42" stroke="#282721" stroke-width="5"/><path d="m29 14 12-23h53l17 23Z" fill="#b9b5a8" stroke="#282721" stroke-width="4"/><path d="M45-7v21m48-21v21" stroke="#665b4d" stroke-width="4"/><circle cx="28" cy="56" r="14" fill="#252523"/><circle cx="118" cy="56" r="14" fill="#252523"/><circle cx="28" cy="56" r="6" fill="#b3aa96"/><circle cx="118" cy="56" r="6" fill="#b3aa96"/></g>
+<g transform="translate(800 575) scale(.82)"><path d="M0 36 16 10h96l28 26 8 22H-7Z" fill="#74614a" stroke="#282721" stroke-width="5"/><path d="m29 14 12-23h53l17 23Z" fill="#c7c0ae" stroke="#282721" stroke-width="4"/><path d="M45-7v21m48-21v21" stroke="#665b4d" stroke-width="4"/><circle cx="28" cy="56" r="14" fill="#252523"/><circle cx="118" cy="56" r="14" fill="#252523"/><circle cx="28" cy="56" r="6" fill="#b3aa96"/><circle cx="118" cy="56" r="6" fill="#b3aa96"/></g>
+<rect width="1200" height="700" fill="url(#paper)" opacity=".75"/>
+<rect x="12" y="12" width="1176" height="676" fill="none" stroke="#655542" stroke-width="5" opacity=".55"/>
+<g filter="url(#grain)"><rect width="1200" height="700" fill="#8b7359" opacity=".055"/></g>
+<text x="42" y="664" fill="#514536" font-family="Georgia,serif" font-size="22" letter-spacing="3">PINTO · PLAZA DE LA CONSTITUCIÓN · RECREACIÓN DOCUMENTAL</text>
+</svg>

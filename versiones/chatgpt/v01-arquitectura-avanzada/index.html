@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Pinto en ruta: guía turística interactiva de Pinto (Madrid), con patrimonio, barrios, sabores, ocio y planificador de visitas.">
+  <meta name="theme-color" content="#f5f4ee">
+  <title>Pinto en ruta · Guía interactiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <div class="app-shell">
+    <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+
+    <aside class="sidebar" id="sidebar" aria-label="Menú principal">
+      <div class="sidebar-top">
+        <a class="brand" href="#inicio" data-nav="inicio" aria-label="Pinto en ruta, inicio">
+          <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span class="brand-name">pinto<span>en ruta</span><small>GUÍA LOCAL · MADRID</small></span>
+        </a>
+        <button class="drawer-close icon-button" id="drawer-close" type="button" aria-label="Cerrar menú"><span aria-hidden="true">×</span></button>
+      </div>
+
+      <div class="sidebar-scroll">
+        <p class="nav-caption">EXPLORA PINTO</p>
+        <nav class="primary-nav" aria-label="Secciones de la guía">
+          <button class="nav-item is-active" type="button" data-nav="inicio" aria-current="page"><span class="nav-glyph" aria-hidden="true">⌂</span><span>Inicio</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="lugares"><span class="nav-glyph" aria-hidden="true">⌖</span><span>Patrimonio y lugares</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="zonas"><span class="nav-glyph" aria-hidden="true">▦</span><span>Zonas y barrios</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="sabores"><span class="nav-glyph" aria-hidden="true">♨</span><span>Sabores de Pinto</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="ocio"><span class="nav-glyph" aria-hidden="true">◉</span><span>Deporte y ocio</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="planifica"><span class="nav-glyph" aria-hidden="true">▤</span><span>Planifica tu visita</span><span class="nav-chevron">↗</span></button>
+          <button class="nav-item" type="button" data-nav="pasaporte"><span class="nav-glyph" aria-hidden="true">✦</span><span>Pasaporte pinteño</span><span class="nav-count" id="nav-stamp-count">0/5</span></button>
+        </nav>
+
+        <div class="drawer-divider"></div>
+        <div class="filter-heading">
+          <div><p class="nav-caption">AFINA TU RUTA</p><span class="filter-subtitle">Filtra los lugares</span></div>
+          <button class="filter-reset" id="clear-filters" type="button">Limpiar</button>
+        </div>
+        <div class="filter-list" role="group" aria-label="Filtros de lugares">
+          <button class="filter-chip" type="button" data-filter="quiet" aria-pressed="false"><span class="filter-icon" aria-hidden="true">◌</span> Paseo tranquilo</button>
+          <button class="filter-chip" type="button" data-filter="shade" aria-pressed="false"><span class="filter-icon" aria-hidden="true">☂</span> Zonas de sombra</button>
+          <button class="filter-chip" type="button" data-filter="interior" aria-pressed="false"><span class="filter-icon" aria-hidden="true">⌂</span> Interior / lluvia</button>
+        </div>
+
+        <div class="drawer-tip">
+          <span class="tip-spark" aria-hidden="true">✳</span>
+          <strong>Un consejo local</strong>
+          <p>En los días calurosos, reserva los paseos al aire libre para primera hora o última de la tarde.</p>
+        </div>
+      </div>
+
+      <div class="sidebar-bottom">
+        <button class="theme-control" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro" aria-pressed="false">
+          <span class="theme-icon" aria-hidden="true">☾</span><span class="theme-copy">Modo oscuro</span><span class="switch-track"><span></span></span>
+        </button>
+        <p class="sidebar-credit">PINTO · COMUNIDAD DE MADRID</p>
+      </div>
+    </aside>
+
+    <main class="main-content" id="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="menu-trigger icon-button" id="menu-trigger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sidebar"><span></span><span></span><span></span></button>
+          <div class="breadcrumb"><span>COMUNIDAD DE MADRID</span><i>/</i><strong id="breadcrumb-current">INICIO</strong></div>
+        </div>
+        <div class="topbar-right">
+          <span class="live-label"><span class="live-dot"></span> GUÍA INTERACTIVA</span>
+          <button class="theme-icon-button" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro" aria-pressed="false" title="Cambiar tema"><span class="theme-icon" aria-hidden="true">☾</span></button>
+          <button class="avatar-button" type="button" data-nav="pasaporte" aria-label="Abrir mi pasaporte">P</button>
+        </div>
+      </header>
+
+      <!-- INICIO -->
+      <section class="view is-visible" id="inicio" aria-labelledby="home-title">
+        <div class="hero-panel">
+          <img class="hero-photo" src="https://cadenaser.com/resizer/v2/JIO3PVBLFBLQJKA2XVTT3MIRZI.jpg?auth=991a1ce5e72539dc395808f4755e0ff056ed6a46d98340d59efdd47d56be7e2e" alt="Torre de Éboli, uno de los monumentos emblemáticos de Pinto" fetchpriority="high">
+          <div class="hero-shade"></div>
+          <div class="hero-copy">
+            <span class="eyebrow eyebrow-on-dark"><span class="eyebrow-line"></span> DESCUBRE EL SUR DE MADRID</span>
+            <h1 id="home-title">Pinto,<br><em>punto de encuentro.</em></h1>
+            <p>Una guía para descubrir su historia, recorrer sus barrios y disfrutar de los pequeños planes que hacen especial a este lugar.</p>
+            <div class="hero-buttons">
+              <button class="button button-primary" type="button" data-nav="lugares">Explorar Pinto <span aria-hidden="true">↗</span></button>
+              <button class="button button-glass" type="button" data-nav="planifica">Planificar una visita</button>
+            </div>
+          </div>
+          <div class="hero-coordinate"><span>40°14′ N</span><span>3°42′ O</span></div>
+          <div class="hero-note"><span class="hero-note-dot"></span> HISTORIA · NATURALEZA · VIDA LOCAL</div>
+        </div>
+
+        <div class="overview-row">
+          <div><span class="eyebrow">TU GUÍA, A TU MANERA</span><h2 id="welcome-title">¿Qué te apetece descubrir?</h2><p class="section-lead">Elige una categoría y empieza a crear tu propia ruta por Pinto.</p></div>
+          <div class="today-pill"><span class="pin-small" aria-hidden="true">⌖</span><span>Pinto · Madrid Sur</span></div>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card category-history" type="button" data-nav="lugares"><span class="category-top"><span>01 / PATRIMONIO</span><b aria-hidden="true">⌖</b></span><strong>Lugares con historia</strong><small>Torres, plazas y rincones con memoria.</small><span class="category-arrow" aria-hidden="true">↗</span></button>
+          <button class="category-card category-neighborhood" type="button" data-nav="zonas"><span class="category-top"><span>02 / CALLES</span><b aria-hidden="true">▦</b></span><strong>Zonas y barrios</strong><small>Conoce el ambiente de cada zona.</small><span class="category-arrow" aria-hidden="true">↗</span></button>
+          <button class="category-card category-food" type="button" data-nav="sabores"><span class="category-top"><span>03 / GASTRONOMÍA</span><b aria-hidden="true">♨</b></span><strong>Sabores de Pinto</strong><small>El dulce más pinteño y dónde encontrarlo.</small><span class="category-arrow" aria-hidden="true">↗</span></button>
+          <button class="category-card category-activity" type="button" data-nav="ocio"><span class="category-top"><span>04 / TIEMPO LIBRE</span><b aria-hidden="true">◉</b></span><strong>Deporte y ocio</strong><small>Parques, instalaciones y planes al aire libre.</small><span class="category-arrow" aria-hidden="true">↗</span></button>
+        </div>
+
+        <div class="section-heading-row"><div><span class="eyebrow">POSTALES DE PINTO</span><h2>Un paseo en imágenes</h2></div><div class="carousel-controls"><button class="carousel-arrow" id="gallery-prev" type="button" aria-label="Imagen anterior">←</button><button class="carousel-arrow" id="gallery-next" type="button" aria-label="Imagen siguiente">→</button></div></div>
+        <div class="gallery-track" id="gallery-track" aria-label="Galería de lugares de Pinto">
+          <article class="gallery-card"><img src="https://cadenaser.com/resizer/v2/JIO3PVBLFBLQJKA2XVTT3MIRZI.jpg?auth=991a1ce5e72539dc395808f4755e0ff056ed6a46d98340d59efdd47d56be7e2e" alt="Torre de Éboli" loading="lazy"><div class="gallery-overlay"><span>01 · PATRIMONIO</span><strong>Torre de Éboli</strong></div></article>
+          <article class="gallery-card"><img src="https://zigzagdigital.com/upload/images/05_2019/5068_f.jpg" alt="Iglesia de Santo Domingo de Silos" loading="lazy"><div class="gallery-overlay"><span>02 · ARQUITECTURA</span><strong>Santo Domingo de Silos</strong></div></article>
+          <article class="gallery-card"><img src="https://zigzagdigital.com/upload/images/07_2026/8923_lago-pinto.jpg" alt="Lago del Parque Juan Carlos I" loading="lazy"><div class="gallery-overlay"><span>03 · NATURALEZA</span><strong>Parque Juan Carlos I</strong></div></article>
+          <article class="gallery-card"><img src="https://www.telemadrid.es/2020/06/24/programas/madrid-directo-om/Conoce-pueblo-Pinto_2243785643_7785486_929x522.jpg" alt="Casa Consistorial de Pinto" loading="lazy"><div class="gallery-overlay"><span>04 · VIDA LOCAL</span><strong>Plaza de la Constitución</strong></div></article>
+        </div>
+        <div class="carousel-progress"><span id="gallery-progress"></span></div>
+
+        <div class="time-machine panel-card">
+          <div class="time-machine-copy"><span class="eyebrow">PÍLDORA VISUAL</span><h2>La máquina<br><em>del tiempo.</em></h2><p>Desliza para comparar una recreación ilustrada del paisaje tradicional con una imagen actual del parque.</p><span class="image-disclaimer">La vista «antes» es una ilustración conceptual, no una fotografía histórica.</span></div>
+          <div class="comparison" id="comparison" style="--split: 50%">
+            <div class="comparison-after"><img src="https://zigzagdigital.com/upload/images/07_2026/8923_lago-pinto.jpg" alt="Vista actual del lago del Parque Juan Carlos I" loading="lazy"><span class="comparison-label label-now">Pinto actual</span></div>
+            <div class="comparison-before" aria-hidden="true"><div class="old-landscape"><span class="old-sun"></span><span class="old-hill hill-a"></span><span class="old-hill hill-b"></span><span class="old-house"><i></i><b></b></span><span class="old-field field-a"></span><span class="old-field field-b"></span></div><span class="comparison-label label-then">Recreación</span></div>
+            <div class="comparison-divider" aria-hidden="true"><span>↔</span></div>
+            <label class="visually-hidden" for="time-slider">Comparar la recreación ilustrada con la imagen actual</label>
+            <input id="time-slider" class="comparison-range" type="range" min="8" max="92" value="50" aria-valuetext="Comparación al 50 por ciento">
+          </div>
+        </div>
+
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> GUÍA LOCAL</span><span>Información orientativa · Verifica horarios antes de desplazarte</span></footer>
+      </section>
+
+      <!-- LUGARES -->
+      <section class="view" id="lugares" aria-labelledby="places-title" hidden>
+        <div class="page-intro"><span class="eyebrow">01 — PATRIMONIO E HISTORIA</span><h1 id="places-title">Pinto tiene<br><em>mucho que contar.</em></h1><p>Una selección de espacios que ayudan a entender el pasado y el presente del municipio.</p></div>
+        <div class="filter-status" id="filter-status" role="status" aria-live="polite"><span class="filter-status-dot"></span><span>Mostrando todos los lugares destacados</span></div>
+        <div class="places-grid" id="places-grid">
+          <article class="place-card place-card-featured" data-tags="quiet history interior" data-place="torre">
+            <div class="place-image"><img src="https://cadenaser.com/resizer/v2/JIO3PVBLFBLQJKA2XVTT3MIRZI.jpg?auth=991a1ce5e72539dc395808f4755e0ff056ed6a46d98340d59efdd47d56be7e2e" alt="Torre de Éboli en Pinto" loading="lazy"><span class="image-badge">IMPRESCINDIBLE</span><span class="image-index">01</span></div>
+            <div class="place-content"><div class="card-kicker">SIGLOS XIV–XV · CASCO HISTÓRICO</div><h2>Torre de Éboli</h2><p>El torreón medieval está ligado a Ana de Mendoza, princesa de Éboli, y a otros personajes de la historia de la corte de Felipe II. La visita se organiza mediante pases guiados y requiere consultar disponibilidad.</p><div class="card-tags"><span>Historia</span><span>Visita guiada</span></div><div class="card-actions"><button class="button button-small button-primary" type="button" data-checkin="torre">Sellar visita <span>✦</span></button><a class="text-link" href="https://www.turismopinto.es/visitanos/monumentos/" target="_blank" rel="noopener noreferrer">Información ↗</a></div></div>
+          </article>
+
+          <article class="place-card" data-tags="quiet shade outdoors park" data-place="parque">
+            <div class="place-image"><img src="https://zigzagdigital.com/upload/images/07_2026/8923_lago-pinto.jpg" alt="Lago del Parque Juan Carlos I" loading="lazy"><span class="image-index">02</span></div>
+            <div class="place-content"><div class="card-kicker">NATURALEZA · OCIO</div><h2>Parque Juan Carlos I</h2><p>El gran parque municipal reúne lago, zonas verdes, espacios infantiles y opciones deportivas. Turismo de Pinto destaca también Arqueopinto, el rocódromo y el auditorio.</p><div class="card-tags"><span>Exterior</span><span>Zonas verdes</span></div><div class="card-actions"><button class="button button-small button-primary" type="button" data-checkin="parque">Sellar visita <span>✦</span></button><a class="text-link" href="https://www.turismopinto.es/visitanos/rutas/" target="_blank" rel="noopener noreferrer">Descubrir ↗</a></div></div>
+          </article>
+
+          <article class="place-card" data-tags="quiet interior history" data-place="iglesia">
+            <div class="place-image"><img src="https://zigzagdigital.com/upload/images/05_2019/5068_f.jpg" alt="Fachada de la iglesia de Santo Domingo de Silos" loading="lazy"><span class="image-index">03</span></div>
+            <div class="place-content"><div class="card-kicker">ARQUITECTURA · CASCO HISTÓRICO</div><h2>Santo Domingo de Silos</h2><p>La iglesia parroquial, declarada Bien de Interés Cultural, combina elementos góticos y renacentistas. Si deseas conocer el interior, consulta antes el horario de apertura.</p><div class="card-tags"><span>Interior</span><span>Patrimonio</span></div><div class="card-actions"><button class="button button-small button-primary" type="button" data-checkin="iglesia">Sellar visita <span>✦</span></button><a class="text-link" href="https://www.visitmadrid.es/donde-ir/area-metropolitana-madrid/pinto" target="_blank" rel="noopener noreferrer">Más información ↗</a></div></div>
+          </article>
+
+          <article class="place-card" data-tags="quiet history" data-place="centro">
+            <div class="place-image visual-center-peninsula"><div class="center-graphic"><span>40°14′ N</span><b>PINTO</b><i>CENTRO DE LA PENÍNSULA</i><em>◎</em></div><span class="image-index">04</span></div>
+            <div class="place-content"><div class="card-kicker">IDENTIDAD LOCAL · CURIOSIDAD</div><h2>El centro geográfico</h2><p>Pinto se asocia tradicionalmente con el centro geográfico de la Península Ibérica. Es una de las señas de identidad que inspira incluso el nombre de su dulce más conocido: los Ombligos de Pinto.</p><div class="card-tags"><span>Historia local</span><span>Curiosidad</span></div><div class="card-actions"><button class="button button-small button-primary" type="button" data-checkin="centro">Sellar visita <span>✦</span></button><a class="text-link" href="https://www.turismopinto.es/visitanos/" target="_blank" rel="noopener noreferrer">Turismo de Pinto ↗</a></div></div>
+          </article>
+
+          <article class="place-card" data-tags="quiet shade outdoors" data-place="egido">
+            <div class="place-image visual-egido"><div class="egido-art"><span>EL</span><strong>EGIDO</strong><i>JARDÍN · ENCUENTRO · VIDA LOCAL</i></div><span class="image-index">04</span></div>
+            <div class="place-content"><div class="card-kicker">PARQUE URBANO · CENTRO</div><h2>Parque Egido de la Fuente</h2><p>Uno de los parques más antiguos de Pinto, con arbolado de gran porte, templete de música y quioscos. Una pausa agradable en pleno entorno urbano.</p><div class="card-tags"><span>Sombra</span><span>Paseo tranquilo</span></div><div class="card-actions"><button class="button button-small button-primary" type="button" data-checkin="egido">Sellar visita <span>✦</span></button><a class="text-link" href="https://www.google.com/maps/search/?api=1&query=Parque+Egido+de+la+Fuente+Pinto" target="_blank" rel="noopener noreferrer">Cómo llegar ↗</a></div></div>
+          </article>
+        </div>
+        <div class="empty-state" id="empty-state" hidden><span>⌕</span><strong>No hay lugares con ese filtro</strong><p>Prueba otro tipo de ruta o limpia los filtros.</p><button class="button button-outline" type="button" id="empty-clear">Quitar filtros</button></div>
+        <div class="source-note"><strong>Nota:</strong> los filtros describen el tipo de experiencia y no sustituyen una comprobación de accesibilidad, sombra disponible o condiciones del día.</div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> PATRIMONIO</span><span>Fuentes: Turismo de Pinto · Comunidad de Madrid</span></footer>
+      </section>
+
+      <!-- ZONAS -->
+      <section class="view" id="zonas" aria-labelledby="zones-title" hidden>
+        <div class="page-intro"><span class="eyebrow">02 — CALLES Y AMBIENTE</span><h1>Un Pinto,<br><em>muchas maneras de vivirlo.</em></h1><p>Una orientación sencilla por zonas reconocibles para entender cómo se mueve el municipio.</p></div>
+        <div class="zones-grid">
+          <article class="zone-card zone-center"><span class="zone-number">01</span><div class="zone-visual"><span class="zone-visual-icon">⌂</span><span class="zone-visual-label">PLAZAS · COMERCIO · HISTORIA</span></div><div class="zone-copy"><div class="card-kicker">EL CORAZÓN DEL MUNICIPIO</div><h2>Pinto Centro</h2><p>El entorno del casco histórico concentra plazas, edificios patrimoniales, comercios y buena parte de la vida cotidiana. Es una zona ideal para combinar un paseo cultural con una parada para tomar algo.</p><button class="text-button" type="button" data-nav="lugares">Ver lugares del centro ↗</button></div></article>
+          <article class="zone-card zone-egido"><span class="zone-number">02</span><div class="zone-visual"><span class="zone-visual-icon">♧</span><span class="zone-visual-label">ARBOLADO · PASEO · ENCUENTRO</span></div><div class="zone-copy"><div class="card-kicker">VERDE EN EL CENTRO</div><h2>El Egido</h2><p>Una zona vinculada al parque histórico Egido de la Fuente y a los espacios de encuentro del centro. Su arbolado y sus bancos invitan a bajar el ritmo.</p><button class="text-button" type="button" data-filter-jump="shade">Buscar planes con sombra ↗</button></div></article>
+          <article class="zone-card zone-indiana"><span class="zone-number">03</span><div class="zone-visual"><span class="zone-visual-icon">▤</span><span class="zone-visual-label">BARRIO · VIDA RESIDENCIAL</span></div><div class="zone-copy"><div class="card-kicker">AMBIENTE DE BARRIO</div><h2>La Indiana</h2><p>Una zona residencial reconocible para muchos vecinos. Explórala como parte de un paseo por el Pinto cotidiano, más allá de los monumentos del casco histórico.</p><button class="text-button" type="button" data-nav="planifica">Preparar paseo ↗</button></div></article>
+        </div>
+        <div class="soft-callout"><span class="callout-icon">✳</span><div><strong>Una ruta sin prisas</strong><p>Para conocer mejor el tejido local, combina el centro con El Egido y deja tiempo para descubrir comercios, pequeñas plazas y calles secundarias.</p></div></div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> ZONAS</span><span>Descripción orientativa, no delimitación administrativa oficial</span></footer>
+      </section>
+
+      <!-- SABORES -->
+      <section class="view" id="sabores" aria-labelledby="food-title" hidden>
+        <div class="page-intro"><span class="eyebrow">03 — GASTRONOMÍA LOCAL</span><h1>El sabor de Pinto<br><em>también tiene historia.</em></h1><p>Un recorrido dulce y cercano por algunos productos y direcciones locales.</p></div>
+        <article class="sweet-feature">
+          <div class="sweet-art"><span class="sweet-art-label">ESPECIALIDAD LOCAL</span><div class="sweet-donut"><span></span></div><strong>OMBLIGOS<br>DE PINTO</strong><small>UNA RECETA CON IDENTIDAD</small></div>
+          <div class="sweet-copy"><div class="card-kicker">EL DULCE MÁS PINTEÑO</div><h2>Los Ombligos de Pinto</h2><p>Un dulce creado como homenaje a la historia local. Su receta reúne zanahoria —presente en las antiguas huertas—, chocolate, vinculado a la tradición chocolatera de La Colonial, y fresa, en recuerdo del ferrocarril que pasaba por Pinto.</p><p class="sweet-footnote">Su nombre alude al «centro» o «punto medio», conectado con la tradición de Pinto como centro geográfico de la Península Ibérica.</p><a class="text-link" href="https://www.turismopinto.es/visitanos/eventos/" target="_blank" rel="noopener noreferrer">Historia y puntos de venta oficiales ↗</a></div>
+        </article>
+        <div class="section-heading-row food-heading"><div><span class="eyebrow">DÓNDE ENCONTRARLOS</span><h2>Una ruta con sabor</h2></div><span class="info-pill">Direcciones publicadas por Turismo de Pinto</span></div>
+        <div class="food-grid">
+          <article class="food-card"><div class="food-card-top food-tone-one"><span>01</span><b>É</b></div><div class="food-card-copy"><h3>Pastelería Éboli</h3><p>Calle del Cristo, 21</p><a href="https://www.google.com/maps/search/?api=1&query=Pasteleria+Eboli+Calle+Cristo+21+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div></article>
+          <article class="food-card"><div class="food-card-top food-tone-two"><span>02</span><b>M</b></div><div class="food-card-copy"><h3>Pastelería Martínez</h3><p>Calle Nicolás Fuster, 13</p><a href="https://www.google.com/maps/search/?api=1&query=Pasteleria+Martinez+Nicolas+Fuster+13+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div></article>
+          <article class="food-card"><div class="food-card-top food-tone-three"><span>03</span><b>P</b></div><div class="food-card-copy"><h3>Pastelería El Pozo</h3><p>Calle Hospital, 4</p><a href="https://www.google.com/maps/search/?api=1&query=Pasteleria+El+Pozo+Calle+Hospital+4+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div></article>
+          <article class="food-card"><div class="food-card-top food-tone-four"><span>04</span><b>CI</b></div><div class="food-card-copy"><h3>Chocolates El Indio</h3><p>Calle Maestra María del Rosario, 16</p><a href="https://www.google.com/maps/search/?api=1&query=Chocolates+El+Indio+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación ↗</a></div></article>
+        </div>
+        <div class="restaurant-feature"><div class="restaurant-icon">♨</div><div><span class="card-kicker">COCINA TRADICIONAL</span><h2>¿Te apetece sentarte a la mesa?</h2><p>Panpintao publica su carta, menú ejecutivo y propuestas de degustación en su web. Comprueba precios y disponibilidad antes de reservar.</p></div><a class="button button-outline" href="https://www.panpintao.com/" target="_blank" rel="noopener noreferrer">Ver restaurante ↗</a></div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> SABORES</span><span>Direcciones contrastadas con Turismo de Pinto · Pueden cambiar</span></footer>
+      </section>
+
+      <!-- OCIO -->
+      <section class="view" id="ocio" aria-labelledby="leisure-title" hidden>
+        <div class="page-intro"><span class="eyebrow">04 — DEPORTE Y TIEMPO LIBRE</span><h1>Activa el cuerpo,<br><em>desconecta la cabeza.</em></h1><p>Instalaciones deportivas y espacios verdes para disfrutar Pinto a tu ritmo.</p></div>
+        <div class="leisure-grid">
+          <article class="leisure-card"><div class="leisure-visual leisure-stadium"><span class="visual-number">01</span><div class="stadium-lines"><span></span><span></span><span></span></div><b>AMELIA<br>DEL CASTILLO</b></div><div class="leisure-copy"><div class="card-kicker">FÚTBOL · INSTALACIÓN MUNICIPAL</div><h2>Estadio Amelia del Castillo</h2><p>Un referente del fútbol local y sede de actividad deportiva. Consulta al Ayuntamiento o al club correspondiente para conocer partidos y accesos.</p><a href="https://www.google.com/maps/search/?api=1&query=Estadio+Amelia+del+Castillo+Pinto" target="_blank" rel="noopener noreferrer">Localizar instalación ↗</a></div></article>
+          <article class="leisure-card"><div class="leisure-visual leisure-sports"><span class="visual-number">02</span><div class="sports-orbit">◎</div><b>DEPORTE<br>EN MOVIMIENTO</b></div><div class="leisure-copy"><div class="card-kicker">ACTIVIDAD FÍSICA</div><h2>Polideportivo Egido</h2><p>Instalación deportiva municipal para actividad física y práctica deportiva. Comprueba horarios, reservas y actividades disponibles en los canales municipales.</p><a href="https://www.ayto-pinto.es/" target="_blank" rel="noopener noreferrer">Web del Ayuntamiento ↗</a></div></article>
+          <article class="leisure-card leisure-wide"><div class="leisure-visual leisure-park"><img src="https://zigzagdigital.com/upload/images/07_2026/8923_lago-pinto.jpg" alt="Lago del Parque Juan Carlos I" loading="lazy"><span class="visual-number">03</span><div class="park-caption"><span>EXTERIOR · PASEO · FAMILIA</span><b>Parque Juan Carlos I</b></div></div><div class="leisure-copy"><div class="card-kicker">NATURALEZA Y OCIO</div><h2>Un parque para quedarse</h2><p>Entre sus espacios se encuentran áreas verdes, zonas infantiles, auditorio, Arqueopinto y propuestas deportivas. Es una buena opción para caminar, hacer una pausa o planear una jornada al aire libre.</p><a href="https://www.turismopinto.es/visitanos/rutas/" target="_blank" rel="noopener noreferrer">Descubrir el parque ↗</a></div></article>
+        </div>
+        <div class="soft-callout"><span class="callout-icon">☀</span><div><strong>Planifica según el tiempo</strong><p>En verano, prioriza el exterior a primera hora o al atardecer y lleva agua. La app ofrece una orientación horaria, no una previsión meteorológica en directo.</p></div></div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> OCIO</span><span>Consulta horarios y disponibilidad con cada instalación</span></footer>
+      </section>
+
+      <!-- PLANIFICA -->
+      <section class="view" id="planifica" aria-labelledby="planner-title" hidden>
+        <div class="page-intro"><span class="eyebrow">05 — TU VISITA, A TU RITMO</span><h1>Elige el momento<br><em>perfecto para salir.</em></h1><p>Selecciona fecha, hora y tipo de plan. La guía te mostrará una recomendación contextual para organizar mejor el paseo.</p></div>
+        <div class="planner-layout">
+          <form class="planner-card" id="planner-form">
+            <div class="planner-card-heading"><span class="planner-icon">◷</span><div><span class="card-kicker">PLANIFICADOR INTELIGENTE</span><h2>Prepara tu visita</h2></div></div>
+            <div class="form-grid">
+              <label class="field"><span>¿Qué día quieres ir?</span><input id="visit-date" name="visitDate" type="date" required></label>
+              <label class="field"><span>¿A qué hora?</span><input id="visit-time" name="visitTime" type="time" value="10:00" required></label>
+              <label class="field field-full"><span>¿Qué tipo de plan tienes en mente?</span><select id="visit-place" name="visitPlace"><option value="park">Paseo por el Parque Juan Carlos I</option><option value="egido">Paseo por El Egido</option><option value="historic">Ruta por el casco histórico</option><option value="interior">Visita cultural de interior</option></select></label>
+            </div>
+            <div class="planner-hint"><span>ⓘ</span><p>La recomendación combina estación, hora y día de la semana. No utiliza datos meteorológicos ni de aforo en directo.</p></div>
+            <button class="button button-primary planner-submit" type="submit">Analizar mi visita <span>↗</span></button>
+          </form>
+
+          <aside class="heat-card" aria-labelledby="heat-title">
+            <div class="heat-heading"><div><span class="card-kicker">ÍNDICE ORIENTATIVO</span><h2 id="heat-title">Termómetro de calor</h2></div><span class="heat-live-tag"><i></i> SIMULACIÓN</span></div>
+            <div class="thermometer-wrap"><div class="thermometer"><div class="thermometer-fill" id="thermometer-fill"></div></div><div class="thermometer-scale"><span>Suave</span><span>Medio</span><span>Alto</span></div></div>
+            <div class="heat-reading"><strong id="heat-level">Suave</strong><span id="crowd-level">Afluencia estimada: baja</span></div>
+            <div class="planner-feedback" id="planner-feedback" role="status" aria-live="polite"><span class="feedback-icon">✳</span><div><strong>Tu plan empieza aquí</strong><p>Elige fecha, hora y actividad para recibir una recomendación personalizada.</p></div></div>
+            <div class="heat-footnote">Estimación demostrativa basada en reglas horarias y estacionales; no representa temperatura, ocupación ni alertas oficiales.</div>
+          </aside>
+        </div>
+        <div class="planner-extra panel-card"><span class="planner-extra-icon">✦</span><div><span class="eyebrow">TU PRÓXIMO RECUERDO</span><h2>Planear también cuenta.</h2><p>Al seleccionar una fecha guardarás un sello de planificación en tu Pasaporte Pinteño. Cuando visites un lugar, pulsa «Sellar visita» para desbloquear una curiosidad.</p><button class="text-button" type="button" data-nav="pasaporte">Ver mi pasaporte ↗</button></div></div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> PLANIFICADOR</span><span>Orientación no oficial · Verifica las condiciones reales del día</span></footer>
+      </section>
+
+      <!-- PASAPORTE -->
+      <section class="view" id="pasaporte" aria-labelledby="passport-title" hidden>
+        <div class="page-intro"><span class="eyebrow">06 — EXPLORA, DESCUBRE, COLECCIONA</span><h1>Tu Pasaporte<br><em>Pinteño.</em></h1><p>Cada lugar que marques se convierte en un sello. Completa la colección y desbloquea pequeñas curiosidades de Pinto.</p></div>
+        <div class="passport-overview panel-card"><div class="passport-emblem">P<span>✦</span></div><div class="passport-progress-copy"><div class="passport-label-row"><span class="card-kicker">TU COLECCIÓN LOCAL</span><strong id="passport-progress-label">0 de 6 sellos</strong></div><h2>Una ruta, cinco recuerdos.</h2><p id="passport-message">Empieza por cualquier lugar o registra una fecha en el planificador.</p><div class="progress-track"><span id="passport-progress-bar"></span></div></div><button class="button button-outline reset-passport" id="reset-passport" type="button">Reiniciar</button></div>
+        <div class="passport-stamps" id="passport-stamps">
+          <article class="stamp-card" data-stamp="torre"><div class="stamp seal-locked"><span>✦</span><b>ÉBOLI</b></div><strong>Torre de Éboli</strong><small>Visita histórica</small><span class="stamp-state">Por descubrir</span></article>
+          <article class="stamp-card" data-stamp="parque"><div class="stamp seal-locked"><span>♧</span><b>VERDE</b></div><strong>Parque Juan Carlos I</strong><small>Naturaleza y paseo</small><span class="stamp-state">Por descubrir</span></article>
+          <article class="stamp-card" data-stamp="iglesia"><div class="stamp seal-locked"><span>⌂</span><b>SILOS</b></div><strong>Santo Domingo de Silos</strong><small>Patrimonio</small><span class="stamp-state">Por descubrir</span></article>
+          <article class="stamp-card" data-stamp="egido"><div class="stamp seal-locked"><span>❧</span><b>EGIDO</b></div><strong>Parque Egido</strong><small>Un respiro en el centro</small><span class="stamp-state">Por descubrir</span></article>
+          <article class="stamp-card" data-stamp="centro"><div class="stamp seal-locked"><span>◎</span><b>CENTRO</b></div><strong>Centro geográfico</strong><small>Identidad pinteña</small><span class="stamp-state">Por descubrir</span></article>
+          <article class="stamp-card" data-stamp="planificador"><div class="stamp seal-locked"><span>◷</span><b>PLAN</b></div><strong>Primera planificación</strong><small>Tu visita empieza aquí</small><span class="stamp-state">Por descubrir</span></article>
+        </div>
+        <div class="unlocked-section"><div class="section-heading-row"><div><span class="eyebrow">PEQUEÑAS GRANDES HISTORIAS</span><h2>Curiosidades desbloqueadas</h2></div><span class="info-pill" id="unlocked-count">0 disponibles</span></div><div class="fact-list" id="fact-list"><div class="locked-message" id="locked-message"><span>🔒</span><div><strong>Aún quedan historias por descubrir</strong><p>Sella un lugar para revelar su curiosidad local.</p></div></div></div></div>
+        <footer class="page-footer"><span>PINTO EN RUTA <i>●</i> TU PASAPORTE</span><span>El progreso se guarda en este dispositivo</span></footer>
+      </section>
+
+      <div class="toast" id="toast" role="status" aria-live="polite"><span class="toast-star">✦</span><div><strong id="toast-title">¡Nuevo sello!</strong><p id="toast-message">Has añadido un recuerdo a tu pasaporte.</p></div><button id="toast-close" type="button" aria-label="Cerrar aviso">×</button></div>
+    </main>
+  </div>
+
+  <noscript><div class="noscript-message">Esta guía necesita JavaScript activado para utilizar el menú, los filtros, el planificador y el pasaporte.</div></noscript>
+</body>
+</html>

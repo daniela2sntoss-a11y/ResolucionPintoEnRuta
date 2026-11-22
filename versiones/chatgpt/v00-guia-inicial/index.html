@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Guía local de Pinto (Madrid): historia, barrios, gastronomía, deporte y ocio.">
+  <meta name="theme-color" content="#f5f4ee">
+  <title>Pinto a mano · Guía local</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+      <a class="brand" href="#inicio" data-nav="inicio" aria-label="Pinto a mano, inicio">
+        <span class="brand-mark" aria-hidden="true">p.</span>
+        <span class="brand-copy">
+          <strong>pinto<span>a mano</span></strong>
+          <small>GUÍA LOCAL · MADRID</small>
+        </span>
+      </a>
+
+      <div class="sidebar-label">DESCUBRE EL PUEBLO</div>
+      <nav class="nav-list" aria-label="Secciones">
+        <button class="nav-link active" type="button" data-nav="inicio" aria-current="page">
+          <span class="nav-icon" aria-hidden="true">⌂</span><span>Inicio</span>
+        </button>
+        <button class="nav-link" type="button" data-nav="lugares">
+          <span class="nav-icon" aria-hidden="true">⌖</span><span>Lugares con historia</span>
+        </button>
+        <button class="nav-link" type="button" data-nav="barrios">
+          <span class="nav-icon" aria-hidden="true">▦</span><span>Zonas y barrios</span>
+        </button>
+        <button class="nav-link" type="button" data-nav="sabores">
+          <span class="nav-icon" aria-hidden="true">♨</span><span>Sabores de Pinto</span>
+        </button>
+        <button class="nav-link" type="button" data-nav="ocio">
+          <span class="nav-icon" aria-hidden="true">◉</span><span>Deporte y ocio</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <div class="local-note">
+          <span class="local-note-icon" aria-hidden="true">✳</span>
+          <div>
+            <strong>Hecho con cariño</strong>
+            <p>Una pequeña guía para mirar Pinto con otros ojos.</p>
+          </div>
+        </div>
+        <button class="theme-toggle sidebar-theme" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro">
+          <span class="theme-symbol" aria-hidden="true">☾</span>
+          <span class="theme-label">Modo oscuro</span>
+          <span class="toggle-track" aria-hidden="true"><span></span></span>
+        </button>
+      </div>
+    </aside>
+
+    <div class="mobile-scrim" id="mobile-scrim"></div>
+
+    <main class="main-content" id="main-content">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobile-menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="sidebar">
+          <span></span><span></span><span></span>
+        </button>
+        <div class="breadcrumb"><span>Comunidad de Madrid</span><span class="crumb-dot">/</span><strong>Pinto</strong></div>
+        <div class="topbar-actions">
+          <span class="topbar-tag"><span class="status-dot"></span> Guía de proximidad</span>
+          <button class="icon-theme theme-toggle" type="button" data-theme-toggle aria-label="Cambiar a modo oscuro" title="Cambiar tema">
+            <span class="theme-symbol" aria-hidden="true">☾</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- INICIO -->
+      <section class="view active" id="inicio" aria-labelledby="home-title">
+        <div class="hero hero-home">
+          <div class="hero-content">
+            <span class="eyebrow"><span class="eyebrow-line"></span> UN PUEBLO, MUCHAS HISTORIAS</span>
+            <h1 id="home-title">Pinto,<br><em>más cerca</em> de lo que imaginas.</h1>
+            <p>Un paseo por sus rincones históricos, sus barrios, sus mesas y esos lugares que forman parte del día a día.</p>
+            <div class="hero-actions">
+              <button class="button button-light" type="button" data-nav="lugares">Empieza a explorar <span aria-hidden="true">↗</span></button>
+              <a class="text-link text-link-light" href="https://www.turismopinto.es/" target="_blank" rel="noopener noreferrer">Turismo oficial de Pinto <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+          <div class="hero-side-note"><span>40°14′ N</span><span>Un lugar con historia</span></div>
+          <div class="hero-stamp" aria-hidden="true"><span>DESCUBRE</span><strong>PINTO</strong><span>MADRID · ESPAÑA</span></div>
+        </div>
+
+        <div class="welcome-row">
+          <div>
+            <span class="eyebrow eyebrow-dark">TU GUÍA PARA DESCUBRIRLO</span>
+            <h2>¿Qué te apetece hoy?</h2>
+            <p class="section-intro">Elige un camino y descubre una cara distinta del municipio.</p>
+          </div>
+          <div class="mini-location"><span class="pin-icon" aria-hidden="true">⌖</span><span>Pinto · Madrid Sur</span></div>
+        </div>
+
+        <div class="category-grid">
+          <button class="category-card category-history" type="button" data-nav="lugares">
+            <span class="category-number">01 / HISTORIA</span><span class="category-icon" aria-hidden="true">⌖</span>
+            <span class="category-title">Lugares con historia</span><span class="category-description">Torres, plazas y rincones que cuentan de dónde venimos.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="category-card category-neighborhoods" type="button" data-nav="barrios">
+            <span class="category-number">02 / CALLES</span><span class="category-icon" aria-hidden="true">▦</span>
+            <span class="category-title">Zonas y barrios</span><span class="category-description">Del casco antiguo a los barrios que dan vida a Pinto.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="category-card category-food" type="button" data-nav="sabores">
+            <span class="category-number">03 / GASTRONOMÍA</span><span class="category-icon" aria-hidden="true">♨</span>
+            <span class="category-title">Sabores de Pinto</span><span class="category-description">Tapas, restaurantes y un dulce con nombre propio.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+          <button class="category-card category-sport" type="button" data-nav="ocio">
+            <span class="category-number">04 / VIDA ACTIVA</span><span class="category-icon" aria-hidden="true">◉</span>
+            <span class="category-title">Deporte y ocio</span><span class="category-description">Instalaciones, parques y planes para moverse.</span>
+            <span class="card-arrow" aria-hidden="true">↗</span>
+          </button>
+        </div>
+
+        <div class="feature-strip">
+          <div class="feature-copy">
+            <span class="eyebrow eyebrow-dark">UN DATO MUY PINTEÑO</span>
+            <h2>El centro de la Península<br>también tiene su historia.</h2>
+            <p>La tradición local sitúa en Pinto el centro geográfico peninsular. Una curiosidad que forma parte de la identidad del municipio y que puedes conocer durante la ruta por el casco histórico.</p>
+            <button class="button button-dark" type="button" data-nav="lugares">Conocer la historia <span aria-hidden="true">→</span></button>
+          </div>
+          <div class="feature-art" role="img" aria-label="Ilustración abstracta de un mapa y un punto central">
+            <div class="map-ring ring-one"></div><div class="map-ring ring-two"></div><div class="map-ring ring-three"></div>
+            <span class="map-cross">+</span><span class="map-pin">●</span><span class="map-caption">AQUÍ ESTÁ PINTO</span>
+          </div>
+        </div>
+
+        <footer class="page-footer"><span>PINTO A MANO <span class="footer-dot">●</span> UNA GUÍA ABIERTA</span><span>Contenido orientativo · Consulta horarios antes de visitar</span></footer>
+      </section>
+
+      <!-- LUGARES -->
+      <section class="view" id="lugares" aria-labelledby="places-title" hidden>
+        <div class="page-heading">
+          <span class="eyebrow eyebrow-dark">01 — PATRIMONIO E HISTORIA</span>
+          <h1 id="places-title">Pinto tiene<br><em>mucho que contar.</em></h1>
+          <p>Un recorrido por algunos de los lugares que explican la historia y la personalidad del municipio.</p>
+        </div>
+        <article class="spotlight-card">
+          <div class="spotlight-image tower-image" role="img" aria-label="Torre de Éboli en Pinto"></div>
+          <div class="spotlight-copy">
+            <span class="tag">IMPRESCINDIBLE</span><span class="spot-number">01</span>
+            <h2>Torre de Éboli</h2>
+            <p>El torreón medieval más reconocible de Pinto. Su historia está ligada a Ana de Mendoza, la princesa de Éboli, que permaneció presa aquí por orden de Felipe II.</p>
+            <div class="spot-meta"><span>⌖ Casco histórico</span><span>◷ Visita según convocatoria</span></div>
+            <a class="text-link" href="https://www.turismopinto.es/visitanos/monumentos/" target="_blank" rel="noopener noreferrer">Información turística <span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <div class="card-grid three-col">
+          <article class="place-card">
+            <div class="place-visual center-visual"><span class="visual-mark">02</span><span class="visual-illustration">◎</span></div>
+            <div class="place-card-body"><span class="tag tag-soft">CURIOSIDAD LOCAL</span><h3>Centro geográfico peninsular</h3><p>La tradición sitúa en Pinto el punto céntrico de la Península Ibérica. El relato está ligado a la leyenda del Arca y al antiguo barranco del Egido.</p><a class="card-link" href="https://www.turismopinto.es/visitanos/rutas/" target="_blank" rel="noopener noreferrer">Descubrir la ruta <span>↗</span></a></div>
+          </article>
+          <article class="place-card">
+            <div class="place-visual park-visual"><span class="visual-mark">03</span><span class="visual-illustration">✳</span></div>
+            <div class="place-card-body"><span class="tag tag-soft">AIRE LIBRE</span><h3>Parque del Egido</h3><p>Un espacio verde muy ligado al centro y a la vida cotidiana de Pinto. Ideal para pasear y enlazar con el casco histórico.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Parque+Egido+Pinto+Madrid" target="_blank" rel="noopener noreferrer">Ver ubicación <span>↗</span></a></div>
+          </article>
+          <article class="place-card">
+            <div class="place-visual church-visual"><span class="visual-mark">04</span><span class="visual-illustration">⌂</span></div>
+            <div class="place-card-body"><span class="tag tag-soft">PATRIMONIO</span><h3>Santo Domingo de Silos</h3><p>Una de las referencias patrimoniales del casco antiguo, con una historia constructiva que se remonta a la Edad Moderna.</p><a class="card-link" href="https://www.turismopinto.es/visitanos/monumentos/" target="_blank" rel="noopener noreferrer">Ver monumentos <span>↗</span></a></div>
+          </article>
+        </div>
+        <div class="route-banner"><div><span class="eyebrow">PLAN PARA UNA MAÑANA</span><h2>Una ruta a pie por el Pinto histórico.</h2><p>Turismo de Pinto propone un recorrido monumental de aproximadamente dos horas por varios de estos enclaves.</p></div><a class="button button-light" href="https://www.turismopinto.es/visitanos/rutas/" target="_blank" rel="noopener noreferrer">Ver ruta oficial ↗</a></div>
+        <footer class="page-footer"><span>PINTO A MANO <span class="footer-dot">●</span> PATRIMONIO</span><span>La apertura y las visitas guiadas pueden variar.</span></footer>
+      </section>
+
+      <!-- BARRIOS -->
+      <section class="view" id="barrios" aria-labelledby="neighborhoods-title" hidden>
+        <div class="page-heading">
+          <span class="eyebrow eyebrow-dark">02 — CALLES Y VECINDARIOS</span>
+          <h1>Cada zona,<br><em>su propio ritmo.</em></h1>
+          <p>Un vistazo a tres áreas representativas para orientarte y conocer mejor el carácter de Pinto.</p>
+        </div>
+        <div class="neighborhood-list">
+          <article class="neighborhood-card">
+            <div class="neighborhood-number">01</div><div class="neighborhood-art art-center"><span>⌂</span><small>CASCO HISTÓRICO</small></div>
+            <div class="neighborhood-info"><span class="tag tag-soft">EL CORAZÓN DEL MUNICIPIO</span><h2>Pinto Centro</h2><p>Calles tradicionales, plazas y edificios históricos. Aquí se concentran algunos de los principales hitos patrimoniales, como la Plaza de la Constitución, la iglesia de Santo Domingo y la Torre de Éboli.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Centro+Pinto+Madrid" target="_blank" rel="noopener noreferrer">Explorar en el mapa <span>↗</span></a></div>
+          </article>
+          <article class="neighborhood-card">
+            <div class="neighborhood-number">02</div><div class="neighborhood-art art-egido"><span>✳</span><small>PARQUE Y VIDA LOCAL</small></div>
+            <div class="neighborhood-info"><span class="tag tag-soft">ZONA VERDE Y DE ENCUENTRO</span><h2>El Egido</h2><p>Una zona muy vinculada al parque del mismo nombre y al entorno del centro. Buen punto de partida para combinar paseo, zonas verdes y algunos de los espacios más conocidos del casco urbano.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Parque+Egido+Pinto+Madrid" target="_blank" rel="noopener noreferrer">Explorar en el mapa <span>↗</span></a></div>
+          </article>
+          <article class="neighborhood-card">
+            <div class="neighborhood-number">03</div><div class="neighborhood-art art-indiana"><span>⌁</span><small>PINTO RESIDENCIAL</small></div>
+            <div class="neighborhood-info"><span class="tag tag-soft">BARRIO DEL SUR</span><h2>La Indiana</h2><p>La Indiana forma parte de las zonas residenciales de Pinto. Convive con áreas de crecimiento urbano y espacios cotidianos que conectan la vida de barrio con el resto del municipio.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=La+Indiana+Pinto+Madrid" target="_blank" rel="noopener noreferrer">Explorar en el mapa <span>↗</span></a></div>
+          </article>
+        </div>
+        <div class="info-note"><span class="info-note-icon">i</span><p>Las denominaciones y límites de los barrios pueden variar según la división administrativa o el uso cotidiano. Esta sección es una presentación divulgativa, no un callejero oficial.</p></div>
+        <footer class="page-footer"><span>PINTO A MANO <span class="footer-dot">●</span> BARRIOS</span><span>Descubre cada zona caminando.</span></footer>
+      </section>
+
+      <!-- SABORES -->
+      <section class="view" id="sabores" aria-labelledby="food-title" hidden>
+        <div class="page-heading">
+          <span class="eyebrow eyebrow-dark">03 — GASTRONOMÍA</span>
+          <h1>El sabor de Pinto<br><em>se comparte.</em></h1>
+          <p>Un dulce con identidad propia y una pequeña selección de sitios donde sentarse a disfrutar.</p>
+        </div>
+        <article class="sweet-feature">
+          <div class="sweet-art"><span class="sweet-sun"></span><span class="sweet-type">DULCE<br>LOCAL</span><span class="sweet-doodle">✳</span><span class="sweet-caption">UNA RECETA CON HISTORIA</span></div>
+          <div class="sweet-copy"><span class="tag">ORGULLO PINTEÑO</span><h2>Los Ombligos<br>de Pinto</h2><p>El dulce local rinde homenaje al Pinto de antes. Su receta incorpora zanahoria, chocolate y fresa: tres ingredientes que evocan las huertas, la antigua fábrica La Colonial y el tren que conectaba Madrid y Aranjuez.</p><p class="small-note">Turismo de Pinto recoge varios establecimientos donde encontrarlos, como Pastelería Éboli, Martínez y El Pozo.</p><a class="text-link" href="https://www.turismopinto.es/visitanos/eventos/" target="_blank" rel="noopener noreferrer">Historia y puntos de venta <span>↗</span></a></div>
+        </article>
+        <div class="section-title-row"><div><span class="eyebrow eyebrow-dark">PARA SALIR A COMER</span><h2>Una mesa para cada plan.</h2></div><span class="selection-note">Selección orientativa · comprueba horarios</span></div>
+        <div class="card-grid two-col food-grid">
+          <article class="food-card"><div class="food-illustration food-tapas"><span>01</span><b>APERITIVO<br>Y TAPAS</b><span class="food-symbol">◒</span></div><div class="food-details"><div><h3>Los Pitufos</h3><p>Bar de tapas de ambiente informal, conocido por sus aperitivos y raciones.</p><small>Cañada de la Real de la Mesta, 2</small></div><a class="round-link" href="https://www.google.com/maps/search/?api=1&query=Los+Pitufos+Pinto+Madrid" target="_blank" rel="noopener noreferrer" aria-label="Ver Los Pitufos en el mapa">↗</a></div></article>
+          <article class="food-card"><div class="food-illustration food-bar"><span>02</span><b>CAFÉ Y<br>RACIONES</b><span class="food-symbol">◌</span></div><div class="food-details"><div><h3>La Maitena</h3><p>Cafetería-bar para desayunar, tomar algo o compartir raciones.</p><small>Plaza de Jaime Méric</small></div><a class="round-link" href="https://www.google.com/maps/search/?api=1&query=Cafeteria+La+Maitena+Pinto" target="_blank" rel="noopener noreferrer" aria-label="Ver La Maitena en el mapa">↗</a></div></article>
+          <article class="food-card"><div class="food-illustration food-gastro"><span>03</span><b>GASTROBAR<br>Y COCINA</b><span class="food-symbol">✳</span></div><div class="food-details"><div><h3>Atorrante</h3><p>Una opción de gastrobar para una comida más pausada y una carta cuidada.</p><small>Calle de Nicaragua, 15</small></div><a class="round-link" href="https://www.google.com/maps/search/?api=1&query=Atorrante+Pinto+Madrid" target="_blank" rel="noopener noreferrer" aria-label="Ver Atorrante en el mapa">↗</a></div></article>
+          <article class="food-card"><div class="food-illustration food-tradition"><span>04</span><b>COCINA<br>CASTELLANA</b><span class="food-symbol">♨</span></div><div class="food-details"><div><h3>Mesón Toledano</h3><p>Mesón de cocina tradicional, con carnes a la brasa y platos clásicos.</p><small>Calle de Castilla, 13</small></div><a class="round-link" href="https://www.google.com/maps/search/?api=1&query=Meson+Toledano+Pinto+Madrid" target="_blank" rel="noopener noreferrer" aria-label="Ver Mesón Toledano en el mapa">↗</a></div></article>
+        </div>
+        <div class="local-food-note"><span aria-hidden="true">✦</span><p><strong>¿Qué más probar?</strong> En Pinto y en la región madrileña encontrarás clásicos como tortilla, patatas bravas, croquetas y cocido madrileño. No son exclusivos del municipio, pero forman parte de su cultura de bar y mesa.</p></div>
+        <footer class="page-footer"><span>PINTO A MANO <span class="footer-dot">●</span> GASTRONOMÍA</span><span>Los locales, cartas y horarios pueden cambiar.</span></footer>
+      </section>
+
+      <!-- OCIO -->
+      <section class="view" id="ocio" aria-labelledby="leisure-title" hidden>
+        <div class="page-heading">
+          <span class="eyebrow eyebrow-dark">04 — DEPORTE, PARQUES Y TIEMPO LIBRE</span>
+          <h1>Muévete, respira<br><em>y disfruta.</em></h1>
+          <p>Instalaciones municipales y espacios al aire libre para hacer deporte o pasar el día.</p>
+        </div>
+        <div class="card-grid two-col leisure-grid">
+          <article class="leisure-card leisure-main"><div class="leisure-art stadium-art"><span class="leisure-art-label">FÚTBOL · PINTO</span><span class="stadium-lines">╱ ╲</span></div><div class="leisure-copy"><span class="tag tag-soft">REFERENTE DEPORTIVO</span><h2>Estadio Amelia del Castillo</h2><p>Estadio municipal de fútbol ligado a la historia del Atlético de Pinto y al deporte local. Su nombre recuerda a Amelia del Castillo, figura pionera en la presidencia de clubes de fútbol en España.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Estadio+Amelia+del+Castillo+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación <span>↗</span></a></div></article>
+          <article class="leisure-card"><div class="leisure-art pool-art"><span class="leisure-art-label">DEPORTE MUNICIPAL</span><span class="pool-symbol">≈</span></div><div class="leisure-copy"><span class="tag tag-soft">INSTALACIONES</span><h2>Polideportivo Egido</h2><p>Una de las referencias municipales para practicar deporte en el entorno urbano.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Polideportivo+Egido+Pinto" target="_blank" rel="noopener noreferrer">Ver ubicación <span>↗</span></a></div></article>
+          <article class="leisure-card"><div class="leisure-art park2-art"><span class="leisure-art-label">PASEO Y NATURALEZA</span><span class="tree-symbol">♧</span></div><div class="leisure-copy"><span class="tag tag-soft">ZONA VERDE</span><h2>Parque Juan Carlos I</h2><p>Un gran espacio verde para pasear, desconectar y disfrutar de actividades al aire libre. El parque cuenta también con un auditorio.</p><a class="card-link" href="https://www.google.com/maps/search/?api=1&query=Parque+Juan+Carlos+I+Pinto+Madrid" target="_blank" rel="noopener noreferrer">Ver ubicación <span>↗</span></a></div></article>
+          <article class="leisure-card"><div class="leisure-art green-art"><span class="leisure-art-label">VERANO · AGUA</span><span class="sun-symbol">☼</span></div><div class="leisure-copy"><span class="tag tag-soft">TEMPORADA DE BAÑO</span><h2>Piscinas municipales</h2><p>Una alternativa para refrescarse y disfrutar del verano. La apertura, los abonos y las condiciones de acceso dependen de la temporada.</p><a class="card-link" href="https://www.ayto-pinto.es/" target="_blank" rel="noopener noreferrer">Consultar Ayuntamiento <span>↗</span></a></div></article>
+        </div>
+        <div class="info-note"><span class="info-note-icon">i</span><p>Para conocer actividades, reservas, tarifas, horarios y posibles cierres, consulta siempre la información municipal actualizada antes de desplazarte.</p></div>
+        <footer class="page-footer"><span>PINTO A MANO <span class="footer-dot">●</span> DEPORTE Y OCIO</span><span>Disfruta los espacios y respeta las instalaciones.</span></footer>
+      </section>
+
+      <div class="source-drawer" id="sources">
+        <span>PARA SEGUIR DESCUBRIENDO</span>
+        <a href="https://www.turismopinto.es/" target="_blank" rel="noopener noreferrer">Turismo de Pinto ↗</a>
+        <a href="https://www.visitmadrid.es/donde-ir/area-metropolitana-madrid/pinto" target="_blank" rel="noopener noreferrer">VisitMadrid ↗</a>
+        <a href="https://www.ayto-pinto.es/" target="_blank" rel="noopener noreferrer">Ayuntamiento de Pinto ↗</a>
+      </div>
+    </main>
+  </div>
+
+  <noscript><div class="noscript-note">Esta guía necesita JavaScript para cambiar entre secciones y alternar el tema.</div></noscript>
+</body>
+</html>

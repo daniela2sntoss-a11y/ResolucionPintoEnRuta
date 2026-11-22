@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Proceso cronológico de diseño y desarrollo de Pinto en ruta: prompts, versiones y correcciones realizadas con ChatGPT. Al final se muestran dos soluciones alternativas generadas con otras herramientas.">
+  <title>Proceso de resolución · Pinto en ruta</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="Ir al inicio de la documentación">
+      <span class="brand-mark">P</span>
+      <span><strong>Pinto en ruta</strong><small>Documentación del proceso</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Navegación principal">
+      <a href="#objetivo">Objetivo</a>
+      <a href="#evolucion">Proceso cronológico</a>
+      <a href="#soluciones-finales">Soluciones finales</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Cambiar tema" aria-pressed="false">☾</button>
+      <button class="icon-btn mobile-menu" id="menuToggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileNav">☰</button>
+    </div>
+  </header>
+
+  <nav class="mobile-nav" id="mobileNav" aria-label="Navegación móvil" hidden>
+    <a href="#objetivo">Objetivo</a>
+    <a href="#evolucion">Proceso cronológico</a>
+    <a href="#soluciones-finales">Soluciones finales</a>
+  </nav>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-inner">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> PROYECTO FRONTEND · PINTO (MADRID)</div>
+        <h1>Del primer prompt<br><em>a una guía turística interactiva.</em></h1>
+        <p class="hero-lead">Esta documentación recoge, en orden cronológico, las peticiones realizadas y las versiones de <strong>Pinto en ruta</strong> que fui entregando durante el proceso: desde la primera guía hasta las correcciones de imágenes y carrusel.</p>
+        <div class="hero-meta"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Diseño responsive</span><span>Iteraciones ChatGPT</span></div>
+        <a class="button button-light" href="#evolucion">Ver el proceso <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="hill hill-back"></div><div class="hill hill-front"></div><div class="tower"><div class="tower-roof"></div><div class="tower-window"></div><div class="tower-door"></div></div><div class="hero-art-label">PINTO · MADRID</div></div>
+    </section>
+
+    <section class="section" id="objetivo">
+      <div class="section-heading"><span class="kicker">01 · PLANTEAMIENTO</span><h2>Objetivo del proyecto</h2></div>
+      <div class="intro-grid">
+        <div class="intro-copy">
+          <p>El objetivo fue crear una aplicación web que funcionase como guía turística y local de Pinto. La primera petición se centraba en mostrar patrimonio, barrios, gastronomía y ocio mediante tarjetas, navegación por secciones y un tema claro/oscuro.</p>
+          <p>A partir de esa base, fui ampliando la aplicación según los requisitos nuevos y corrigiendo los problemas detectados: se añadieron el menú lateral, filtros, el planificador climático, el Pasaporte Pinteño, imágenes y un comparador histórico. Las fases siguientes documentan esas entregas en el mismo orden en que se solicitaron.</p>
+        </div>
+        <div class="objective-card"><div class="objective-number">07</div><h3>Iteraciones documentadas</h3><p>Siete fases de trabajo, desde la estructura inicial hasta la última corrección de la imagen de la Torre de Éboli en el carrusel.</p><div class="objective-tags"><span>Diseño UI/UX</span><span>HTML / CSS / JS</span><span>Correcciones</span><span>GitHub Pages</span></div></div>
+      </div>
+      <div class="tool-row single">
+        <article class="tool-card"><div class="tool-icon chatgpt">✳</div><div><h3>Desarrollo principal con ChatGPT</h3><p>Las fases que aparecen a continuación corresponden a los prompts que me enviaste aquí y a las soluciones/códigos que te fui proporcionando en cada respuesta.</p><small>Los paquetes ZIP de cada iteración se pueden descargar desde su fase correspondiente.</small></div></article>
+      </div>
+      <div class="evidence-note"><strong>Cómo está organizada esta documentación:</strong> primero aparece exclusivamente el proceso de las versiones que te entregué con ChatGPT. Las dos soluciones externas que generaste después con el mismo prompt consolidado se muestran únicamente en el último apartado, como comparación final.</div>
+    </section>
+
+    <section class="section section-alt" id="evolucion">
+      <div class="section-heading"><span class="kicker">02 · EVOLUCIÓN CRONOLÓGICA</span><h2>Prompts y soluciones entregadas</h2><p class="section-subtitle">Cada fase conserva la petición, explica qué se modificó y enlaza con el ZIP de la versión correspondiente. Las capturas de esta parte son vistas de las aplicaciones generadas en estas iteraciones, no capturas de las herramientas alternativas.</p></div>
+
+      <article class="phase-card">
+        <div class="phase-index">01</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">PRIMERA ENTREGA · GUÍA BASE</span><h3>Creación de la guía turística de Pinto</h3></div><span class="status">Versión inicial</span></div>
+          <p class="phase-summary">La primera solicitud definió las cuatro áreas principales y los requisitos visuales básicos. El resultado fue una web sencilla de varias secciones con HTML, CSS y JavaScript separados.</p>
+          <details class="prompt-details"><summary>Prompt 1 · Solicitud inicial</summary><div class="prompt-body"><pre class="prompt-text">Actúa como un Diseñador UI/UX y Desarrollador Frontend experto.
+
+Quiero que me diseñes la estructura y el código base (HTML, CSS y JavaScript) para una aplicación web multipantalla o de pestañas que funcione como una guía turística y local completa sobre mi pueblo: Pinto (Madrid).
+
+El objetivo es practicar maquetación avanzada, diseño con cards, transiciones fluidas y un sistema de cambio entre modo claro y modo oscuro.
+
+La aplicación de Pinto debe incluir las siguientes secciones clave en formato de fichas o pantallas:
+1. Puntos de Interés Turístico e Histórico: Torre de Éboli, el diseño del municipio como centro geográfico de la Península Ibérica, Parque Municipal.
+2. Zonas y Barrios: Pinto Centro, El Egido o La Indiana.
+3. Gastronomía: restaurantes, bares de tapas recomendados y platos típicos de la zona.
+4. Deportes y Ocio: instalaciones municipales, polideportivos como el Amelia del Castillo y zonas verdes.
+
+Requisitos técnicos y de diseño:
+- Modo Claro / Oscuro: botón accesible para alternar dinámicamente el tema mediante variables CSS.
+- Maquetación y Transiciones: CSS Grid/Flexbox, cards con zoom o sombra al pasar el ratón y transiciones suaves.
+- Diseño Adaptativo (Responsive): móvil y ordenador.
+
+Entrégame el código estructurado (HTML, CSS y JavaScript) listo para probar.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se entregó una primera carpeta con <code>index.html</code>, <code>styles.css</code>, <code>app.js</code> y <code>README.md</code>. Incluía las secciones informativas, tarjetas, navegación entre apartados y alternancia de tema claro/oscuro.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/01-guia-inicial.zip" download><span>↓</span><span><b>Descargar versión 01 · Guía inicial</b><small>ZIP con HTML, CSS, JavaScript y README.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v00-guia-inicial/index.html">HTML</a><a href="versiones/chatgpt/v00-guia-inicial/styles.css">CSS</a><a href="versiones/chatgpt/v00-guia-inicial/app.js">JavaScript</a></div></div>
+          <div class="evidence-grid two"><figure><a class="shot" href="capturas/chatgpt/v00-guia-inicial-base.png"><img src="capturas/chatgpt/v00-guia-inicial-base.png" alt="Vista de la primera guía de Pinto generada en la iteración inicial."></a><figcaption><b>Resultado 01.</b> Primera interfaz de la guía.</figcaption></figure></div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">02</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">SEGUNDA ENTREGA · AMPLIACIÓN</span><h3>Arquitectura avanzada, menú lateral y gamificación</h3></div><span class="status">Nueva estructura</span></div>
+          <p class="phase-summary">Se pidió elevar el nivel de la aplicación y convertirla en una experiencia interactiva. La interfaz incorporó filtros, controles avanzados y un sistema de progreso para las visitas.</p>
+          <details class="prompt-details"><summary>Prompt 2 · Requisitos avanzados</summary><div class="prompt-body"><pre class="prompt-text">Actúa como un Diseñador UI/UX Senior y Desarrollador Frontend experto.
+
+Quiero que me diseñes la estructura completa y el código base (HTML, CSS y JavaScript moderno) para una aplicación web/móvil interactiva que funcione como una guía turística avanzada sobre Pinto (Madrid).
+
+El objetivo es demostrar maquetación avanzada, componentes de interfaz complejos, estados de interacción y diseño centrado en el usuario.
+
+1. Arquitectura de navegación y estética:
+- Design Tokens: variables CSS para colores, tipografías, sombras y espaciados.
+- Navigation Drawer: menú lateral deslizable para cambiar de sección y filtrar vistas, por ejemplo, Modo Paseo Tranquilo o zonas de sombra.
+- Estados hover, active, focus y disabled en botones, tarjetas y elementos interactivos.
+
+2. Componentes de UI:
+- Cards interactivas para Torre de Éboli, Parque Municipal Juan Carlos I, Iglesia de Santo Domingo de Silos, etc.
+- Carrusel horizontal de fotografías o comparador visual «Máquina del Tiempo» entre Pinto histórico y actual.
+
+3. Características innovadoras:
+- Date & Time Picker con termómetro de calor y avisos contextuales para horas de mucho calor o aforos altos, con alternativas de interior.
+- Pasaporte Pinteño: check-in en tarjetas o al seleccionar una fecha, sellos dorados y curiosidades desbloqueables.
+- Modo claro/oscuro dinámico y accesible.
+
+Entregable: estructura HTML, CSS responsive y JavaScript para el menú lateral, selector de fechas y cambio de tema.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se rediseñó la aplicación con design tokens, navegación lateral deslizable, filtros de paseo tranquilo y sombra, carrusel, comparador histórico y Pasaporte Pinteño. Los sellos y curiosidades se desbloqueaban mediante interacciones y el progreso se conservaba en el navegador.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/02-arquitectura-avanzada.zip" download><span>↓</span><span><b>Descargar versión 02 · Arquitectura avanzada</b><small>ZIP con la nueva estructura y componentes interactivos.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v01-arquitectura-avanzada/index.html">HTML</a><a href="versiones/chatgpt/v01-arquitectura-avanzada/styles.css">CSS</a><a href="versiones/chatgpt/v01-arquitectura-avanzada/app.js">JavaScript</a></div></div>
+          <div class="evidence-grid two"><figure><a class="shot" href="capturas/chatgpt/v01-arquitectura-avanzada-inicio.png"><img src="capturas/chatgpt/v01-arquitectura-avanzada-inicio.png" alt="Vista de la versión avanzada de Pinto en ruta."></a><figcaption><b>Resultado 02.</b> Interfaz avanzada con navegación y accesos a las categorías.</figcaption></figure></div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">03</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">TERCERA ENTREGA · CORRECCIÓN FUNCIONAL Y VISUAL</span><h3>Termómetro de calor, fotografías y categorías ilustradas</h3></div><span class="status">Lógica corregida</span></div>
+          <p class="phase-summary">Se detectó que una fecha de verano a las 14:00 aparecía como calor suave. También se pidió completar las fotografías de los lugares y dar más presencia visual a las cuatro categorías principales.</p>
+          <details class="prompt-details"><summary>Prompt 3 · Correcciones de calor e imágenes</summary><div class="prompt-body"><pre class="prompt-text">1. Corrección en la lógica del «Termómetro de Calor»:
+- En los meses de verano (junio, julio, agosto y septiembre), entre las 13:00 y las 19:00, se debe activar una alerta por calor extremo / altas temperaturas.
+- La app debe advertir que se evite la exposición al sol a esas horas y sugerir alternativas de interior, como pastelerías históricas o centros culturales.
+
+2. Inclusión de imágenes reales o representativas para:
+- Centro geográfico de la Península Ibérica.
+- Parque Egido de la Fuente.
+- Pinto Centro y barrio de El Egido.
+- La Indiana.
+- Los Ombligos de Pinto.
+- Pastelería Éboli, Pastelería Martínez y Pastelería El Pozo.
+- Chocolates El Indio.
+- Estadio Municipal Amelia del Castillo.
+- Polideportivo Municipal El Egido.
+
+3. Mejoras visuales en «¿Qué te apetece descubrir?»:
+- Lugares con historia: ilustración de torre o monumento.
+- Zonas y barrios: entorno urbano o casas.
+- Sabores de Pinto: pastelería, dulce o chocolate.
+- Deporte y ocio: estadio o actividades.
+
+Proporciona el código corregido y optimizado con estos cambios implementados.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se modificó la clasificación temporal para que junio, julio, agosto y septiembre entre las 13:00 y las 19:00 activasen el nivel extremo. Se añadieron alertas para evitar la exposición al sol y propuestas de interior. También se incorporaron imágenes para los lugares solicitados y cuatro ilustraciones SVG de estilo flat design. La alerta se documentó como simulación orientativa, no como medición meteorológica en directo.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/03-calor-imagenes-categorias.zip" download><span>↓</span><span><b>Descargar versión 03 · Calor, imágenes y categorías</b><small>ZIP con la lógica climática corregida y nuevos recursos visuales.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v02-calor-imagenes-categorias/index.html">HTML</a><a href="versiones/chatgpt/v02-calor-imagenes-categorias/styles.css">CSS</a><a href="versiones/chatgpt/v02-calor-imagenes-categorias/app.js">JavaScript</a></div></div>
+          <div class="evidence-grid two"><figure><a class="shot" href="capturas/chatgpt/v02-calor-imagenes-categorias-inicio.png"><img src="capturas/chatgpt/v02-calor-imagenes-categorias-inicio.png" alt="Vista de la guía después de incorporar las ilustraciones de categoría."></a><figcaption><b>Resultado 03.</b> Categorías ilustradas y estructura visual actualizada.</figcaption></figure></div>
+          <div class="evidence-note"><strong>Nota funcional:</strong> la regla de verano es una clasificación de demostración del planificador. No representa una predicción meteorológica ni un registro de temperatura real de Pinto.</div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">04</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">CUARTA ENTREGA · GALERÍA E HISTORIA</span><h3>Reparación del carrusel y ampliación de la Máquina del Tiempo</h3></div><span class="status">Interacciones revisadas</span></div>
+          <p class="phase-summary">Las flechas laterales del carrusel no permitían recorrer toda la colección. Además, la Máquina del Tiempo estaba limitada a un único parque, así que se pidió incluir otros lugares históricos de Pinto y utilizar referencias visuales históricas con contexto.</p>
+          <details class="prompt-details"><summary>Prompt 4 · Carrusel y Máquina del Tiempo</summary><div class="prompt-body"><pre class="prompt-text">1. Reparación del Carrusel («Un paseo en imágenes»):
+- Arreglar la lógica JavaScript y los estilos CSS de las flechas Siguiente y Anterior.
+- Permitir avanzar y retroceder de forma fluida por toda la colección de imágenes.
+- Mantener el desplazamiento horizontal y la interacción táctil.
+
+2. Ampliación y corrección de la «Máquina del Tiempo»:
+- Añadir elementos icónicos de Pinto: Torre de Éboli, Iglesia de Santo Domingo de Silos y antigua Plaza de la Constitución.
+- Sustituir la imagen del pasado por una imagen histórica real, grabado antiguo o ilustración fidedigna del monumento o zona que se compara.
+
+Proporciona el código corregido y asegúrate de que la navegación y las transiciones funcionen.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se reconstruyó la navegación del carrusel con controles anterior/siguiente, desplazamiento táctil, arrastre y manejo por teclado. La Máquina del Tiempo se amplió a varios escenarios: Torre de Éboli, Santo Domingo de Silos y Plaza de la Constitución. Se documentaron las fuentes visuales y se diferenció la documentación histórica de las ilustraciones de apoyo.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/04-carrusel-maquina-tiempo.zip" download><span>↓</span><span><b>Descargar versión 04 · Carrusel y Máquina del Tiempo</b><small>ZIP con las nuevas interacciones y comparativas históricas.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v03-carrusel-maquina-tiempo/index.html">HTML</a><a href="versiones/chatgpt/v03-carrusel-maquina-tiempo/styles.css">CSS</a><a href="versiones/chatgpt/v03-carrusel-maquina-tiempo/app.js">JavaScript</a></div></div>
+          <div class="evidence-grid two"><figure><a class="shot" href="capturas/chatgpt/v03-carrusel-galeria-detalle.png"><img src="capturas/chatgpt/v03-carrusel-galeria-detalle.png" alt="Carrusel de imágenes con botones de navegación."></a><figcaption><b>Resultado 04.</b> Carrusel en la versión de ampliación histórica.</figcaption></figure></div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">05</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">QUINTA ENTREGA · ACOTACIÓN DEL COMPARADOR</span><h3>Máquina del Tiempo solo con el Ayuntamiento y la Torre de Éboli</h3></div><span class="status">Dos escenarios</span></div>
+          <p class="phase-summary">Se decidió simplificar la Máquina del Tiempo y dejar únicamente dos comparaciones: la Casa Consistorial (Ayuntamiento) y la Torre de Éboli. Para cada una se pidió una fotografía antigua y una vista contemporánea del mismo edificio.</p>
+          <details class="prompt-details"><summary>Prompt 5 · Selección del Ayuntamiento y la Torre</summary><div class="prompt-body"><pre class="prompt-text">Hazlo solo de el Ayuntamiento (Casa Consistorial) y de la Torre de Éboli, usa estas fotos. Pon las fotos de Pinto actual también.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se dejó el comparador con dos botones y dos escenarios, uno para la Casa Consistorial y otro para la Torre de Éboli. La primera entrega de esta fase empaquetó las fotografías históricas en JPG; después se detectó que la previsualización no correspondía exactamente a los archivos aportados y fue necesario corregirlo en la siguiente iteración.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/05-ayuntamiento-torre-intermedio.zip" download><span>↓</span><span><b>Descargar versión 05 · Ayuntamiento y Torre (entrega intermedia)</b><small>ZIP de la primera versión con solo los dos comparadores.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v04-ayuntamiento-y-torre/index.html">HTML</a><a href="versiones/chatgpt/v04-ayuntamiento-y-torre/styles.css">CSS</a><a href="versiones/chatgpt/v04-ayuntamiento-y-torre/app.js">JavaScript</a></div></div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">06</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">SEXTA ENTREGA · CORRECCIÓN DE RECURSOS</span><h3>Uso de las fotografías originales enviadas</h3></div><span class="status">PNG originales</span></div>
+          <p class="phase-summary">Al revisar la comparación, se señaló que la imagen mostrada no era la fotografía enviada. Se pidió utilizar los dos archivos originales, sin reemplazarlos por imágenes ilustrativas ni modificarlos.</p>
+          <details class="prompt-details"><summary>Prompt 6 · Corrección de la fotografía</summary><div class="prompt-body"><pre class="prompt-text">Esa no es la foto que te he mandado. Usa exactamente las imágenes que adjunté, sin sustituirlas por imágenes ilustrativas ni modificarlas.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se sustituyeron los recursos históricos por los dos PNG originales enviados: la fotografía antigua de la Casa Consistorial y la de la Torre de Éboli. Se guardaron dentro de <code>assets/historic/</code> y el comparador pasó a cargar las imágenes desde el propio proyecto, evitando depender de un servicio externo para las fotografías antiguas.</p></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/06-fotos-originales-exactas.zip" download><span>↓</span><span><b>Descargar versión 06 · Fotografías originales exactas</b><small>ZIP con las dos imágenes PNG originales y el código actualizado.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v05-fotos-exactas/index.html">HTML</a><a href="versiones/chatgpt/v05-fotos-exactas/styles.css">CSS</a><a href="versiones/chatgpt/v05-fotos-exactas/app.js">JavaScript</a></div></div>
+          <div class="photo-pair"><figure><img src="versiones/chatgpt/v05-fotos-exactas/assets/historic/casa-consistorial-antigua.png" alt="Fotografía original enviada de la antigua Casa Consistorial de Pinto"><figcaption><b>Archivo histórico 01.</b> Casa Consistorial (Ayuntamiento), fotografía original facilitada.</figcaption></figure><figure><img src="versiones/chatgpt/v05-fotos-exactas/assets/historic/torre-eboli-antigua.png" alt="Fotografía original enviada de la antigua Torre de Éboli"><figcaption><b>Archivo histórico 02.</b> Torre de Éboli, fotografía original facilitada.</figcaption></figure></div>
+        </div>
+      </article>
+
+      <article class="phase-card">
+        <div class="phase-index">07</div><div class="phase-content">
+          <div class="phase-top"><div><span class="phase-label">SÉPTIMA ENTREGA · ÚLTIMO FALLO DETECTADO</span><h3>Corrección de la imagen de la Torre de Éboli en el carrusel</h3></div><span class="status">Última corrección</span></div>
+          <p class="phase-summary">Después de corregir las imágenes de la Máquina del Tiempo, se detectó otro fallo independiente: la tarjeta de la Torre de Éboli en «Un paseo en imágenes» no cargaba ninguna fotografía.</p>
+          <details class="prompt-details"><summary>Prompt 7 · Imagen que no carga en el carrusel</summary><div class="prompt-body"><pre class="prompt-text">La imagen de «Un paseo en imágenes», Torre de Éboli, no carga ninguna imagen.</pre></div></details>
+          <div class="solution-box"><strong>Solución proporcionada</strong><p>Se incorporó una cadena de fuentes de respaldo para la imagen de la Torre. Si falla la primera URL, JavaScript prueba las alternativas y, finalmente, puede utilizar el recurso histórico local. Así se evita que la tarjeta se quede sin imagen si una fuente remota deja de responder.</p></div>
+          <div class="code-proof"><span class="code-proof-label">Fragmento de la corrección aplicada en JavaScript</span><pre class="prompt-text"><code>document.querySelectorAll('img[data-fallbacks]').forEach((image) =&gt; {
+  const candidates = (image.dataset.fallbacks || '').split('|').filter(Boolean);
+  let candidateIndex = 0;
+
+  image.addEventListener('error', () =&gt; {
+    if (candidateIndex &lt; candidates.length) {
+      image.src = candidates[candidateIndex++];
+      return;
+    }
+    image.classList.add('image-load-failed');
+  });
+});</code></pre></div>
+          <div class="version-links"><a class="version-download" href="descargas/chatgpt/07-carrusel-torre-corregido.zip" download><span>↓</span><span><b>Descargar versión 07 · Carrusel de Torre de Éboli corregido</b><small>Última entrega: carrusel con fuentes alternativas y PNG históricos conservados.</small></span></a><div class="code-links"><a href="versiones/chatgpt/v06-correccion-carrusel-torre/index.html">HTML</a><a href="versiones/chatgpt/v06-correccion-carrusel-torre/styles.css">CSS</a><a href="versiones/chatgpt/v06-correccion-carrusel-torre/app.js">JavaScript</a></div></div>
+          <div class="evidence-note"><strong>Resultado final de esta línea de trabajo:</strong> la versión 07 conserva las fotografías PNG originales en el comparador histórico y añade el sistema de respaldo para la imagen de la Torre de Éboli en el carrusel.</div>
+        </div>
+      </article>
+    </section>
+
+    <section class="section" id="soluciones-finales">
+      <div class="section-heading"><span class="kicker">03 · COMPARACIÓN FINAL</span><h2>Soluciones finales generadas con otras herramientas</h2><p class="section-subtitle">Una vez completadas las siete iteraciones anteriores, se recopiló un prompt consolidado y se utilizó también para obtener dos implementaciones independientes. Estas propuestas aparecen aquí, separadas del proceso principal.</p></div>
+      <div class="compare-intro"><p><strong>Prompt consolidado enviado a ambas herramientas.</strong> Recoge la especificación final elaborada a partir de los requisitos y correcciones que se fueron acumulando en el proceso de Pinto en ruta.</p></div>
+      <details class="prompt-details final-prompt"><summary>Mostrar prompt consolidado utilizado</summary><div class="prompt-body"><pre class="prompt-text">Actúa como un Diseñador UI/UX Senior y Desarrollador Frontend experto. Desarrolla una aplicación web completa, responsive e interactiva que funcione como una guía turística avanzada de Pinto (Madrid), utilizando HTML5, CSS3 y JavaScript moderno, preferiblemente sin frameworks para que el código sea fácil de estudiar y modificar.
+
+OBJETIVO Y CONTENIDO
+Crea una experiencia visual de turismo local, con diseño editorial cuidado y navegación clara. Incluye fichas de patrimonio e historia (Torre de Éboli, Iglesia de Santo Domingo de Silos y referencia al centro geográfico de la Península Ibérica), zonas y barrios (Pinto Centro, El Egido y La Indiana), gastronomía local (Ombligos de Pinto, pastelerías y Chocolates El Indio) y deporte y ocio (Estadio Amelia del Castillo, Polideportivo El Egido y parques municipales).
+
+DISEÑO Y ARQUITECTURA
+- Define design tokens mediante variables CSS para paleta, tipografías, tamaños, espaciados, radios, sombras y transiciones.
+- Incluye modo claro y oscuro, persistiendo la preferencia del usuario.
+- Implementa un Navigation Drawer lateral con navegación entre secciones y filtros de paseo tranquilo y zonas de sombra/interior.
+- Diseña cards interactivas con imagen, categoría, descripción, indicadores y estados hover, active, focus-visible y disabled.
+- Crea cuatro accesos de categoría con ilustraciones SVG estilo flat design: historia, barrios, gastronomía y deporte.
+- Usa CSS Grid y Flexbox, jerarquía tipográfica y un diseño responsive para móvil, tablet y escritorio.
+
+PLANIFICADOR CLIMÁTICO
+- Incluye selectores de fecha y hora.
+- Para junio, julio, agosto y septiembre, entre las 13:00 y las 19:00, muestra una alerta de calor severo/extremo y recomienda evitar la exposición al sol, cambiar a actividades interiores y pasear en horas más frescas.
+- Propón alternativas de interior relacionadas con Pinto.
+- Deja claro que se trata de una simulación orientativa si no se conecta una fuente meteorológica real; no presentes temperaturas estimadas como datos en directo.
+
+GALERÍA Y MÁQUINA DEL TIEMPO
+- Añade un carrusel horizontal de fotografías de Pinto con botones anterior/siguiente, puntos de navegación, indicador de posición, soporte táctil y teclado, y transiciones fluidas.
+- La Máquina del Tiempo debe comparar únicamente la Casa Consistorial (Ayuntamiento) y la Torre de Éboli.
+- Utiliza las dos fotografías históricas proporcionadas por la usuaria como imágenes del pasado, sin sustituirlas por otras, recortarlas ni convertirlas. Añade una fotografía contemporánea identificada para cada edificio.
+- Implementa un comparador deslizante tipo cortina para revelar pasado y presente. Indica las fechas y créditos disponibles; no inventes que una fotografía es actual si no se conoce su fecha.
+
+GAMIFICACIÓN
+- Añade el Pasaporte Pinteño con sellos que se desbloquean al visitar tarjetas o completar acciones.
+- Muestra curiosidades asociadas a los lugares y guarda el progreso mediante localStorage.
+- Incluye estados visuales de sello bloqueado y desbloqueado y una barra de progreso.
+
+CALIDAD Y ENTREGA
+- Mantén el código organizado, comentado y funcional.
+- Evita controles decorativos que no hagan nada.
+- Comprueba las rutas de imágenes y añade recursos de respaldo si una imagen externa no carga.
+- Respeta accesibilidad básica: etiquetas, aria-label, foco visible, navegación por teclado y contraste.
+- Entrega el HTML, CSS y JavaScript completos, con instrucciones para ejecutar y publicar en GitHub Pages.</pre></div></details>
+
+      <div class="comparison-grid">
+        <article class="ai-card ai-claude"><div class="ai-head"><span class="ai-logo">C</span><div><h3>Claude</h3><small>Solución final · <code>pinto-guia.html</code></small></div></div><ul><li>HTML autocontenido con CSS y JavaScript integrados.</li><li>Tokens CSS compactos y estructura basada en secciones.</li><li>Datos de lugares organizados en arrays JavaScript.</li><li>Búsqueda dinámica de imágenes en Wikimedia Commons con ilustración SVG de respaldo.</li><li>Carrusel horizontal con flechas y desplazamiento mediante <code>scrollBy()</code>.</li><li>Máquina del Tiempo con pestañas para varios escenarios y capa visual histórica.</li><li>Pasaporte persistido mediante <code>localStorage</code>.</li></ul><a class="file-link" href="versiones/claude/pinto-guia.html" download>Descargar solución final HTML de Claude ↗</a></article>
+        <article class="ai-card ai-gemini"><div class="ai-head"><span class="ai-logo">✦</span><div><h3>Gemini</h3><small>Solución final · <code>descubre_pinto_gu_a_tur_stica_interactiva.html</code></small></div></div><ul><li>HTML autocontenido de mayor extensión.</li><li>Catálogo de doce lugares con tarjetas de detalle y modal.</li><li>Ilustraciones SVG y fotografías externas definidas en los datos.</li><li>Carrusel con índice, contador y puntos de navegación.</li><li>Máquina del Tiempo con tres escenarios y control deslizante.</li><li>Planificador climático con escenarios estacionales y alternativas de interior.</li><li>Pasaporte con doce sellos, niveles y barra de progreso.</li></ul><a class="file-link" href="versiones/gemini/descubre_pinto_gu_a_tur_stica_interactiva.html" download>Descargar solución final HTML de Gemini ↗</a></article>
+      </div>
+
+      <h3 class="subsection-title">Capturas de las soluciones finales</h3>
+      <div class="model-captures"><div class="model-capture-group"><h4>Claude</h4><div class="evidence-grid two"><figure><a class="shot" href="capturas/alternativas/claude-inicio.png"><img src="capturas/alternativas/claude-inicio.png" alt="Pantalla de inicio de la solución final de Claude"></a><figcaption>Inicio y categorías</figcaption></figure><figure><a class="shot" href="capturas/alternativas/claude-paseo.png"><img src="capturas/alternativas/claude-paseo.png" alt="Carrusel de la solución final de Claude"></a><figcaption>Carrusel y galería</figcaption></figure><figure><a class="shot" href="capturas/alternativas/claude-tiempo.png"><img src="capturas/alternativas/claude-tiempo.png" alt="Máquina del Tiempo de la solución final de Claude"></a><figcaption>Máquina del Tiempo</figcaption></figure><figure><a class="shot" href="capturas/alternativas/claude-pasaporte.png"><img src="capturas/alternativas/claude-pasaporte.png" alt="Pasaporte de la solución final de Claude"></a><figcaption>Pasaporte Pinteño</figcaption></figure></div></div>
+        <div class="model-capture-group"><h4>Gemini</h4><div class="evidence-grid two"><figure><a class="shot" href="capturas/alternativas/gemini-inicio.png"><img src="capturas/alternativas/gemini-inicio.png" alt="Pantalla de inicio de la solución final de Gemini"></a><figcaption>Inicio y categorías</figcaption></figure><figure><a class="shot" href="capturas/alternativas/gemini-paseo.png"><img src="capturas/alternativas/gemini-paseo.png" alt="Carrusel de la solución final de Gemini"></a><figcaption>Carrusel y galería</figcaption></figure><figure><a class="shot" href="capturas/alternativas/gemini-termometro.png"><img src="capturas/alternativas/gemini-termometro.png" alt="Termómetro de la solución final de Gemini"></a><figcaption>Planificador climático</figcaption></figure><figure><a class="shot" href="capturas/alternativas/gemini-maquina-tiempo.png"><img src="capturas/alternativas/gemini-maquina-tiempo.png" alt="Máquina del Tiempo de la solución final de Gemini"></a><figcaption>Máquina del Tiempo</figcaption></figure><figure><a class="shot" href="capturas/alternativas/gemini-pasaporte.png"><img src="capturas/alternativas/gemini-pasaporte.png" alt="Pasaporte de la solución final de Gemini"></a><figcaption>Pasaporte Pinteño</figcaption></figure></div></div></div>
+
+      <div class="analysis-note"><strong>Comparación final:</strong> la propuesta de Claude utiliza una implementación más compacta y obtiene imágenes de forma dinámica. La de Gemini desarrolla más componentes explícitos, con modal de detalle, contador de carrusel y más escenarios visuales. En las capturas facilitadas, algunas imágenes de la galería de Gemini no aparecen cargadas en ese momento; su código sí define diapositivas y recursos de imagen. Estas dos implementaciones se incluyen como resultados alternativos al final y no forman parte de las versiones progresivas documentadas en las siete fases anteriores.</div>
+      <div class="final-conclusion"><span class="kicker">CIERRE DEL PROCESO</span><h3>Primero se construyó y corrigió la aplicación; después se compararon dos soluciones finales.</h3><p>La evolución principal se organizó a partir de las peticiones y de las entregas de ChatGPT: guía inicial, arquitectura avanzada, mejoras del termómetro y de las imágenes, corrección del carrusel, ajuste de la Máquina del Tiempo, incorporación de las fotografías originales y reparación de la carga de la Torre de Éboli. Solo una vez terminada esa secuencia se añadieron las dos soluciones alternativas para observar cómo resolvían la especificación consolidada.</p></div>
+    </section>
+  </main>
+
+  <footer class="footer"><span>PINTO EN RUTA</span><span>Proceso cronológico · Diseño y desarrollo web</span><a href="#inicio">Volver arriba ↑</a></footer>
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Captura ampliada" aria-hidden="true"><button type="button" id="lightboxClose" aria-label="Cerrar imagen">×</button><img id="lightboxImage" alt="Vista ampliada de la captura"></div>
+  <script src="app.js"></script>
+</body>
+</html>

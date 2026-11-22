@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pinto, guía de visita</title>
+<style>
+/* ===== Design tokens ===== */
+:root{
+ --font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--font-title:"Palatino Linotype",Palatino,"Book Antiqua",Georgia,serif;
+ --fs-s:.875rem;--fs-m:1rem;--fs-xl:clamp(2rem,5vw,3.4rem);
+ --sp-1:.5rem;--sp-2:1rem;--sp-3:1.5rem;--sp-4:3rem;--r:18px;--r-s:10px;
+ --brand:#2438a6;--brand-ink:#fff;--gold:#f2b705;--bg:#f2f5fa;--surface:#fff;--surface-2:#e5ebf5;--text:#14213d;--muted:#53607a;--line:#d3dbe9;
+ --ok:#2e7d4f;--warm:#d97706;--hot:#c81e1e;--cool:#1c6fb5;
+ --sh-1:0 1px 3px rgba(20,33,61,.15);--sh-2:0 16px 34px rgba(20,33,61,.25);
+ --t:.3s cubic-bezier(.2,.7,.2,1);color-scheme:light}
+[data-theme=dark]{--brand:#8fa4ff;--brand-ink:#0d1426;--bg:#0d1426;--surface:#16203a;--surface-2:#1f2b4a;--text:#eaf0ff;--muted:#a3b0cc;--line:#2c3b60;--sh-1:0 1px 3px rgba(0,0,0,.6);--sh-2:0 16px 34px rgba(0,0,0,.65);color-scheme:dark}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{margin:0;font:var(--fs-m)/1.55 var(--font);background:var(--bg);color:var(--text);transition:background var(--t),color var(--t)}
+h1,h2,h3{font-family:var(--font-title);line-height:1.15;margin:0}h3{font-size:1.15rem}
+p{margin:0}.sub{color:var(--muted)}.small{font-size:var(--fs-s)}
+section,.wrap{max-width:1100px;margin:auto;padding:var(--sp-4) var(--sp-2)}
+section>h2{font-size:1.9rem;margin-bottom:var(--sp-1)}section>.sub{margin-bottom:var(--sp-3)}
+/* ===== Estados de interacción ===== */
+.btn{font:inherit;font-weight:600;border:2px solid var(--brand);background:var(--brand);color:var(--brand-ink);padding:.6rem 1.2rem;border-radius:999px;cursor:pointer;transition:transform var(--t),box-shadow var(--t),background var(--t),color var(--t)}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--brand)}.btn.ghost:hover{background:var(--surface-2)}
+.btn:focus-visible,a:focus-visible,input:focus-visible,.card:focus-visible,.cat:focus-visible,.iconbtn:focus-visible,#track:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.iconbtn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--surface);color:var(--text);font-size:1.4rem;line-height:1;cursor:pointer;box-shadow:var(--sh-1);touch-action:manipulation;transition:transform var(--t),box-shadow var(--t),background var(--t)}
+.iconbtn:hover{transform:translateY(-2px);box-shadow:var(--sh-2)}.iconbtn:active{transform:scale(.9)}.iconbtn:disabled{opacity:.3;cursor:not-allowed;transform:none;box-shadow:none}
+/* ===== Cabecera y Navigation Drawer ===== */
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:var(--sp-2);padding:.6rem var(--sp-2);background:var(--bg);border-bottom:1px solid var(--line);transition:background var(--t)}
+.logo{font:700 1.25rem var(--font-title);flex:1}
+#scrim{position:fixed;inset:0;background:rgba(0,0,0,.55);opacity:0;pointer-events:none;transition:opacity var(--t);z-index:30}#scrim.on{opacity:1;pointer-events:auto}
+#drawer{position:fixed;inset:0 auto 0 0;width:min(320px,86vw);background:var(--surface);z-index:40;padding:var(--sp-2);overflow:auto;box-shadow:var(--sh-2);transform:translateX(-102%);visibility:hidden;transition:transform var(--t),visibility 0s .3s,background var(--t)}
+#drawer.on{transform:none;visibility:visible;transition:transform var(--t),background var(--t)}
+#drawer h2{font-size:1.2rem;margin:var(--sp-2) .5rem .3rem}
+#drawer a{display:block;padding:.7rem 1rem;border-radius:var(--r-s);color:var(--text);text-decoration:none;transition:background var(--t),padding var(--t)}
+#drawer a:hover{background:var(--surface-2);padding-left:1.4rem}#drawer a:active{background:var(--line)}
+.sw{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.6rem 1rem;cursor:pointer}
+.sw input{width:22px;height:22px;accent-color:var(--brand)}
+/* ===== Hero + Termómetro ===== */
+.hero{background:linear-gradient(160deg,#14213d,#2438a6);color:#fff}
+.hero h1{font-size:var(--fs-xl);max-width:14ch}.hero p{max-width:52ch;margin:var(--sp-1) 0 var(--sp-3);opacity:.9}
+.plan{display:grid;gap:var(--sp-3);background:var(--surface);color:var(--text);border-radius:var(--r);padding:var(--sp-3);box-shadow:var(--sh-2);transition:background var(--t)}
+@media(min-width:760px){.plan{grid-template-columns:1fr 1.5fr}}
+label{display:grid;gap:.3rem;font-weight:600;margin-bottom:var(--sp-2)}
+input[type=date],input[type=time]{font:inherit;padding:.65rem;border-radius:var(--r-s);border:2px solid var(--line);background:var(--bg);color:var(--text);transition:border-color var(--t)}
+input[type=date]:hover,input[type=time]:hover{border-color:var(--brand)}
+.temp{display:flex;align-items:baseline;gap:.8rem}.temp b{font:700 3rem var(--font-title)}
+.gauge{height:14px;border-radius:99px;margin:.9rem 0 1.2rem;position:relative;background:linear-gradient(90deg,#1c6fb5,#2e7d4f 40%,#d97706 70%,#c81e1e)}
+.gauge i{position:absolute;top:-5px;left:0;width:6px;height:24px;border-radius:3px;background:var(--text);transform:translateX(-50%);transition:left .6s var(--t)}
+#alert{border-left:6px solid var(--lv,var(--ok));background:var(--surface-2);padding:.9rem 1rem;border-radius:var(--r-s);margin-bottom:var(--sp-2);transition:border-color var(--t),background var(--t)}
+/* ===== Categorías ===== */
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:var(--sp-2)}
+.cat{font:inherit;text-align:center;color:var(--text);background:var(--surface);border:2px solid var(--line);border-radius:var(--r);padding:var(--sp-3) var(--sp-2);cursor:pointer;transition:transform var(--t),box-shadow var(--t),border-color var(--t),background var(--t)}
+.cat:hover{transform:translateY(-6px);box-shadow:var(--sh-2);border-color:var(--c1)}.cat:active{transform:scale(.97)}
+.cat[aria-pressed=true]{border-color:var(--c1);background:var(--surface-2)}
+.cat svg{width:78px;height:78px;margin-bottom:.5rem;transition:transform var(--t)}.cat:hover svg{transform:scale(1.12) rotate(-4deg)}
+/* ===== Cards ===== */
+.head{display:flex;justify-content:space-between;align-items:end;gap:1rem;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-3)}
+.card{display:flex;flex-direction:column;background:var(--surface);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-1);cursor:pointer;transition:transform var(--t),box-shadow var(--t),background var(--t)}
+.card:hover{transform:translateY(-8px);box-shadow:var(--sh-2)}.card:active{transform:translateY(-2px)}
+.ph{aspect-ratio:16/10;overflow:hidden;background:var(--surface-2)}
+.ph img,.cmp img,#track img{display:block;width:100%;height:100%;object-fit:cover}
+.ph img{opacity:0;transition:transform .6s,opacity .5s}.ph img.ok{opacity:1}.card:hover .ph img{transform:scale(1.1)}
+.body{padding:var(--sp-2);display:grid;gap:.5rem;flex:1;align-content:start}
+.tag{display:inline-block;font-size:var(--fs-s);background:var(--surface-2);padding:.1rem .6rem;border-radius:99px;color:var(--muted)}
+.card.done .btn{background:var(--gold);border-color:var(--gold);color:#14213d}
+/* ===== Carrusel ===== */
+.car{position:relative}
+#track{display:flex;gap:var(--sp-2);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px}
+#track::-webkit-scrollbar{display:none}
+#track figure{margin:0;flex:0 0 min(82%,420px);scroll-snap-align:start;border-radius:var(--r);overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--surface-2)}
+#track img{pointer-events:none;-webkit-user-drag:none;user-select:none}
+#track figcaption{position:absolute;inset:auto 0 0;padding:1.5rem 1rem .8rem;color:#fff;background:linear-gradient(transparent,rgba(0,0,0,.75));font-weight:600}
+.car .iconbtn{position:absolute;top:50%;z-index:5;transform:translateY(-50%)}
+.car .iconbtn:hover{transform:translateY(-50%) scale(1.08)}.car .iconbtn:active{transform:translateY(-50%) scale(.9)}
+.prev{left:-6px}.next{right:-6px}
+/* ===== Máquina del tiempo ===== */
+.tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--sp-2)}
+.tabs button[aria-pressed=true]{background:var(--brand);color:var(--brand-ink)}
+.cmp{position:relative;aspect-ratio:16/9;border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-2);--pos:50%;background:var(--surface-2)}
+.cmp img{position:absolute;inset:0}
+#past{filter:sepia(.8) contrast(1.05);clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.cmp .line{position:absolute;top:0;bottom:0;left:var(--pos);width:3px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.6);pointer-events:none}
+.cmp .line::after{content:"↔";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:#fff;color:#14213d;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;font-weight:700}
+.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.cmp .lb{position:absolute;top:.7rem;padding:.2rem .8rem;border-radius:99px;background:rgba(0,0,0,.65);color:#fff;font-size:var(--fs-s);pointer-events:none}
+/* ===== Pasaporte ===== */
+.bar{height:10px;background:var(--surface-2);border-radius:99px;overflow:hidden;margin:.5rem 0 var(--sp-2)}.bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .6s}
+.stamps{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:var(--sp-2)}
+.stamp{aspect-ratio:1;border-radius:50%;display:grid;place-content:center;text-align:center;font-size:.74rem;padding:.7rem;border:3px dashed var(--line);color:var(--muted);filter:grayscale(1);opacity:.65;transition:all .6s}
+.stamp.on{border:3px solid #a97800;background:radial-gradient(circle at 30% 30%,#ffe28a,var(--gold) 60%,#b88512);color:#3a2a00;filter:none;opacity:1;box-shadow:0 0 0 5px rgba(242,183,5,.3)}
+.stamp.new{animation:pop .7s}
+@keyframes pop{0%{transform:scale(.3) rotate(-30deg)}60%{transform:scale(1.2) rotate(8deg)}100%{transform:none}}
+#facts{padding-left:1.1rem;display:grid;gap:.5rem;max-width:70ch}
+#toast{position:fixed;left:50%;bottom:1.2rem;transform:translate(-50%,150%);background:var(--text);color:var(--bg);padding:.7rem 1.2rem;border-radius:99px;z-index:50;box-shadow:var(--sh-2);transition:transform var(--t);max-width:92vw}
+#toast.on{transform:translate(-50%,0)}
+footer{text-align:center;padding:var(--sp-3) var(--sp-2) var(--sp-4);color:var(--muted);font-size:var(--fs-s)}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01s!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header class="top">
+ <button class="iconbtn" id="menu" aria-label="Abrir menú" aria-expanded="false" aria-controls="drawer">☰</button>
+ <span class="logo">Pinto, guía de visita</span>
+ <button class="iconbtn" id="theme" aria-label="Cambiar entre modo claro y oscuro" aria-pressed="false">🌙</button>
+</header>
+<div id="scrim"></div>
+<aside id="drawer" aria-label="Menú principal">
+ <button class="iconbtn" id="close" aria-label="Cerrar menú">✕</button>
+ <h2>Ir a</h2>
+ <nav><a href="#inicio">Planifica tu visita</a><a href="#descubre">¿Qué te apetece descubrir?</a><a href="#lugares">Lugares</a><a href="#paseo">Un paseo en imágenes</a><a href="#tiempo">Máquina del tiempo</a><a href="#pasaporte">Pasaporte Pinteño</a></nav>
+ <h2>Filtrar lugares</h2>
+ <label class="sw"><span>Modo paseo tranquilo<br><small class="sub">Sin deporte ni bullicio</small></span><input type="checkbox" id="calm"></label>
+ <label class="sw"><span>Zonas de sombra<br><small class="sub">Parques e interiores</small></span><input type="checkbox" id="shade"></label>
+</aside>
+<main>
+<div class="hero" id="inicio"><div class="wrap">
+ <h1>Pinto, a la hora justa</h1>
+ <p>Elige día y hora y te avisamos de cuánto aprieta el sol antes de que salgas de casa.</p>
+ <div class="plan">
+  <div><label>Día<input type="date" id="d"></label><label>Hora<input type="time" id="t"></label><p class="sub small">Planificar tu visita también cuenta: ganas un sello.</p></div>
+  <div>
+   <div class="temp"><b id="deg">--</b><span id="lvl"></span></div>
+   <div class="gauge" aria-hidden="true"><i id="mk"></i></div>
+   <div id="alert" role="status" aria-live="polite"></div>
+   <button class="btn" id="goShade" hidden>Ver planes con sombra</button>
+   <p class="sub small" style="margin-top:.8rem">Estimación con máximas típicas de la zona; no es una previsión oficial.</p>
+  </div>
+ </div>
+</div></div>
+<section id="descubre"><h2>¿Qué te apetece descubrir?</h2><p class="sub">Elige una categoría para filtrar los lugares.</p><div class="cats" id="cats"></div></section>
+<section id="lugares"><div class="head"><div><h2>Lugares</h2><p class="sub">Toca una tarjeta para hacer check-in y ganar su sello.</p></div><button class="btn ghost" id="all">Ver todo</button></div><div class="grid" id="grid" style="margin-top:var(--sp-2)"></div></section>
+<section id="paseo"><h2>Un paseo en imágenes</h2><p class="sub">Desliza o usa las flechas.</p>
+ <div class="car"><button class="iconbtn prev" id="prev" aria-label="Foto anterior">‹</button><div id="track" tabindex="0" aria-label="Galería de fotos"></div><button class="iconbtn next" id="next" aria-label="Foto siguiente">›</button></div></section>
+<section id="tiempo"><h2>Máquina del tiempo</h2><p class="sub">Arrastra el control para pasar del Pinto de antes al de hoy.</p>
+ <div class="tabs" id="tabs"></div>
+ <div class="cmp" id="cmp"><img id="now" alt="Vista actual"><img id="past" alt="Vista histórica"><span class="lb" style="left:.7rem">Antes</span><span class="lb" style="right:.7rem">Hoy</span><div class="line"></div><input type="range" id="pos" min="0" max="100" value="50" aria-label="Comparar el antes y el hoy"></div>
+ <p class="sub small" id="tmnote" style="margin-top:.6rem"></p></section>
+<section id="pasaporte"><h2>Pasaporte Pinteño</h2><p class="sub">Cada check-in convierte un sello en dorado y desbloquea una curiosidad.</p>
+ <b id="cnt">0 / 0</b><div class="bar"><i id="bar"></i></div><div class="stamps" id="stamps"></div>
+ <h3 style="margin:var(--sp-3) 0 var(--sp-1)">Curiosidades desbloqueadas</h3><ul id="facts"></ul>
+ <button class="btn ghost" id="reset" style="margin-top:var(--sp-2)">Reiniciar pasaporte</button></section>
+</main>
+<footer>Fotografías cargadas desde Wikimedia Commons con sus licencias libres. Revisa textos y autorías antes de entregar.</footer>
+<div id="toast" role="status"></div>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const store={get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}}};
+
+/* ===== Datos: [id, nombre, categoría, sombra, tranquilo, descripción, consultas de imagen (separadas por |), curiosidad] ===== */
+const P=[
+['eboli','Torre de Éboli','historia',0,1,'Torre del siglo XV, símbolo del casco antiguo.','Torre de Éboli Pinto','Ana de Mendoza, princesa de Éboli, estuvo presa en esta torre en 1579.'],
+['silos','Iglesia de Santo Domingo de Silos','historia',1,1,'Templo del casco histórico, fresco en los días de calor.','Iglesia Santo Domingo de Silos Pinto|Iglesia Pinto Madrid','Su nombre recuerda a Santo Domingo de Silos, monje benedictino del siglo XI.'],
+['centro','Centro geográfico de la Península Ibérica','historia',0,1,'Hito para una parada curiosa en tu ruta.','Centro geográfico Península Ibérica Pinto|Pinto Madrid','Un punto en el mapa que sitúa a Pinto en el corazón peninsular.'],
+['indiana','La Indiana','historia',0,1,'Edificio singular del casco urbano pinteño.','La Indiana Pinto|Pinto Madrid casco histórico','Las casas de indianos recuerdan a quienes hicieron fortuna en América y volvieron.'],
+['egido','Parque Egido de la Fuente','zonas',1,1,'Zona verde con sombra para pasear y descansar.','Parque Egido de la Fuente Pinto|Parque Pinto Madrid','Los parques son el pulmón verde del barrio de El Egido.'],
+['juan','Parque Municipal Juan Carlos I','zonas',1,1,'Gran parque con lago y zonas arboladas.','Parque Juan Carlos I Pinto|Parque Pinto Madrid lago','Lago y paseos arbolados lo convierten en el gran espacio de ocio al aire libre.'],
+['pcentro','Pinto Centro y barrio de El Egido','zonas',0,1,'Calles, plazas y comercio para recorrer a pie.','Pinto Madrid plaza|Pinto Madrid calle','Recorrerlo a pie enlaza la torre, la iglesia y las pastelerías.'],
+['ombligos','Los Ombligos de Pinto','sabores',1,1,'Dulce tradicional que conviene probar.','Ombligos de Pinto|dulces típicos pastelería','Un dulce con nombre propio: pruébalo recién hecho.'],
+['pasteboli','Pastelería Éboli','sabores',1,1,'Parada dulce con repostería artesana.','Pastelería Éboli Pinto|pastelería escaparate dulces','Parada obligada para los golosos.'],
+['pastmartinez','Pastelería Martínez','sabores',1,1,'Repostería de barrio para el café de la tarde.','Pastelería Martínez Pinto|pastelería bollería','La repostería artesana forma parte de la identidad gastronómica pinteña.'],
+['pastpozo','Pastelería El Pozo','sabores',1,1,'Bollería y dulces para llevar.','Pastelería El Pozo Pinto|pastelería tarta','Un dulce a mitad de ruta recarga energías.'],
+['indio','Chocolates El Indio','sabores',1,1,'Chocolate para regalar o para darte un capricho.','Chocolates El Indio Pinto|chocolate artesano bombones','El chocolate también viajó de América a nuestras mesas.'],
+['estadio','Estadio Municipal Amelia del Castillo','deporte',0,0,'Casa del fútbol local.','Estadio Amelia del Castillo Pinto|estadio fútbol césped','Un día de partido es otra forma de conocer el pueblo.'],
+['poli','Polideportivo Municipal El Egido','deporte',1,0,'Instalaciones deportivas para todas las edades.','Polideportivo El Egido Pinto|polideportivo pabellón','Plan de interior perfecto para esquivar el calor.']];
+const S=[...P.map(p=>[p[0],p[1],p[7]]),['plan','Planificador','Elegir bien la hora evita golpes de calor: en verano, mejor a primera hora o al atardecer.']];
+const ICO={
+historia:'<svg viewBox="0 0 64 64"><rect x="20" y="18" width="24" height="38" fill="var(--c1)"/><path d="M16 18h32v-7h-5v4h-4v-4h-4v4h-4v-4h-4v4h-4v-4h-5z" fill="var(--c2)"/><path d="M28 56V43a4 4 0 0 1 8 0v13z" fill="#fff"/><rect x="29" y="26" width="6" height="9" rx="3" fill="#fff"/></svg>',
+zonas:'<svg viewBox="0 0 64 64"><path d="M32 4a16 16 0 0 0-16 16c0 12 16 28 16 28s16-16 16-28A16 16 0 0 0 32 4z" fill="var(--c1)"/><circle cx="32" cy="20" r="6" fill="#fff"/><rect x="6" y="50" width="18" height="10" fill="var(--c2)"/><path d="M4 50l11-9 11 9z" fill="var(--c1)"/><rect x="40" y="48" width="18" height="12" fill="var(--c2)"/><path d="M38 48l11-9 11 9z" fill="var(--c1)"/></svg>',
+sabores:'<svg viewBox="0 0 64 64"><path d="M14 30h36l-5 27H19z" fill="var(--c2)"/><path d="M11 30c0-11 9-17 21-17s21 6 21 17z" fill="var(--c1)"/><circle cx="32" cy="9" r="4" fill="#c81e1e"/><path d="M25 33l3 21M32 33v21M39 33l-3 21" stroke="#fff" stroke-width="2" opacity=".6"/></svg>',
+deporte:'<svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="25" fill="#fff" stroke="var(--c1)" stroke-width="4"/><path d="M32 20l11 8-4 13H25l-4-13z" fill="var(--c1)"/><path d="M32 20V8M43 28l12-4M39 41l8 10M25 41l-8 10M21 28L9 24" stroke="var(--c2)" stroke-width="3" fill="none"/></svg>'};
+const CAT={historia:['Lugares con historia','Torres, iglesias e hitos','#b23a2a','#f2b705'],zonas:['Zonas y barrios','Parques, plazas y calles','#2e7d4f','#9bd3ae'],sabores:['Sabores de Pinto','Dulces y chocolate','#b83a82','#f6c177'],deporte:['Deporte y ocio','Estadio y polideportivo','#1c6fb5','#f08a4b']};
+$('#cats').innerHTML=Object.entries(CAT).map(([k,c])=>`<button class="cat" data-cat="${k}" aria-pressed="false" style="--c1:${c[2]};--c2:${c[3]}">${ICO[k]}<h3>${c[0]}</h3><p class="sub small">${c[1]}</p></button>`).join('');
+
+/* ===== Menú lateral y tema ===== */
+const dr=$('#drawer');
+function drawer(o){dr.classList.toggle('on',o);$('#scrim').classList.toggle('on',o);$('#menu').setAttribute('aria-expanded',o);(o?$('#close'):$('#menu')).focus()}
+$('#menu').onclick=()=>drawer(true);$('#close').onclick=$('#scrim').onclick=()=>drawer(false);
+dr.addEventListener('click',e=>{if(e.target.closest('a'))drawer(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&dr.classList.contains('on'))drawer(false)});
+function theme(t){document.documentElement.dataset.theme=t;$('#theme').textContent=t==='dark'?'☀️':'🌙';$('#theme').setAttribute('aria-pressed',t==='dark');store.set('th',t)}
+theme(store.get('th',matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'));
+$('#theme').onclick=()=>theme(document.documentElement.dataset.theme==='dark'?'light':'dark');
+let tt;function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),2600)}
+
+/* ===== Imágenes reales (Wikimedia Commons) con ilustración de respaldo ===== */
+const art=(t,h=(t.length*47)%360)=>'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${h} 55% 62%)"/><stop offset="1" stop-color="hsl(${h+40} 50% 36%)"/></linearGradient></defs><rect width="800" height="500" fill="url(#g)"/><path d="M0 380Q200 300 400 370T800 340V500H0z" fill="rgba(0,0,0,.2)"/><text x="400" y="260" font-size="38" text-anchor="middle" fill="#fff" font-family="Georgia,serif">${t}</text></svg>`);
+async function find(q){
+ const k='im:'+q;try{const c=sessionStorage.getItem(k);if(c!==null)return c}catch{}
+ try{
+  const r=await fetch('https://commons.wikimedia.org/w/api.php?'+new URLSearchParams({action:'query',generator:'search',gsrnamespace:6,gsrlimit:8,gsrsearch:'filetype:bitmap '+q,prop:'imageinfo',iiprop:'url|mime',iiurlwidth:900,format:'json',origin:'*'}));
+  const pg=Object.values((await r.json()).query?.pages||{}).sort((a,b)=>a.index-b.index),strict=/pinto/i.test(q);
+  const u=pg.find(p=>/jpe?g|png|webp/.test(p.imageinfo?.[0]?.mime||'')&&(!strict||/pinto|[eé]boli/i.test(p.title)))?.imageinfo[0].thumburl||'';
+  try{sessionStorage.setItem(k,u)}catch{}return u
+ }catch{return ''}
+}
+const cache={};
+const imgOf=p=>cache[p[0]]??=(async()=>{for(const q of p[6].split('|')){const u=await find(q);if(u)return u}return art(p[1])})();
+function hydrate(root){$$(root+' img[data-id]').forEach(i=>{const p=P.find(x=>x[0]===i.dataset.id);i.onload=()=>i.classList.add('ok');i.onerror=()=>{i.onerror=null;i.src=art(p[1])};imgOf(p).then(u=>i.src=u)})}
+
+/* ===== Cards, filtros y check-in ===== */
+const st={cat:'all',calm:false,shade:false};let got=store.get('pp',[]);
+function cards(){
+ const l=P.filter(p=>(st.cat==='all'||p[2]===st.cat)&&(!st.calm||p[4])&&(!st.shade||p[3]));
+ $('#grid').innerHTML=l.map(p=>`<article class="card" tabindex="0" data-id="${p[0]}"><div class="ph"><img alt="${p[1]}" data-id="${p[0]}" loading="lazy"></div><div class="body"><span class="tag" style="justify-self:start">${CAT[p[2]][0]}</span><h3>${p[1]}</h3><p class="sub">${p[5]}</p><div>${p[3]?'<span class="tag">🌳 Sombra</span> ':''}${p[4]?'<span class="tag">🚶 Tranquilo</span>':''}</div><button class="btn" tabindex="-1">Hacer check-in</button></div></article>`).join('')||'<p class="sub">Ninguna parada cumple esos filtros. Prueba a quitar alguno.</p>';
+ hydrate('#grid');mark();$$('.cat').forEach(b=>b.setAttribute('aria-pressed',b.dataset.cat===st.cat))}
+function mark(){$$('.card').forEach(c=>{const d=got.includes(c.dataset.id);c.classList.toggle('done',d);c.querySelector('.btn').textContent=d?'Sello conseguido ★':'Hacer check-in'})}
+function pass(j){
+ $('#stamps').innerHTML=S.map(s=>{const on=got.includes(s[0]);return`<div class="stamp ${on?'on':''} ${s[0]===j?'new':''}">${on?'★':'🔒'}<br>${s[1]}</div>`}).join('');
+ $('#bar').style.width=got.length/S.length*100+'%';$('#cnt').textContent=got.length+' / '+S.length+' sellos';
+ $('#facts').innerHTML=S.filter(s=>got.includes(s[0])).map(s=>`<li><b>${s[1]}:</b> ${s[2]}</li>`).join('')||'<li class="sub">Haz check-in en una tarjeta para desbloquear curiosidades.</li>'}
+function checkin(id){const s=S.find(x=>x[0]===id);if(got.includes(id))toast('Ya tienes el sello de '+s[1]);else{got.push(id);store.set('pp',got);toast('🏅 Sello desbloqueado: '+s[1])}pass(id);mark()}
+$('#grid').addEventListener('click',e=>{const c=e.target.closest('.card');if(c)checkin(c.dataset.id)});
+$('#grid').addEventListener('keydown',e=>{const c=e.target.closest('.card');if(c&&(e.key==='Enter'||e.key===' ')){e.preventDefault();checkin(c.dataset.id)}});
+$('#cats').addEventListener('click',e=>{const b=e.target.closest('.cat');if(!b)return;st.cat=st.cat===b.dataset.cat?'all':b.dataset.cat;cards();$('#lugares').scrollIntoView()});
+$('#all').onclick=()=>{st.cat='all';cards()};
+$('#calm').onchange=e=>{st.calm=e.target.checked;cards();toast(st.calm?'Modo paseo tranquilo activado':'Modo paseo tranquilo desactivado')};
+$('#shade').onchange=e=>{st.shade=e.target.checked;cards();toast(st.shade?'Mostrando zonas de sombra':'Mostrando todas las zonas')};
+$('#reset').onclick=()=>{got=[];store.set('pp',got);pass();mark();toast('Pasaporte reiniciado')};
+$('#goShade').onclick=()=>{st.shade=$('#shade').checked=true;cards();$('#lugares').scrollIntoView()};
+
+/* ===== Termómetro de calor ===== */
+const HOT=[11,14,18,21,27,35,39,38,34,24,16,12]; // máxima en día cálido típico, por mes (0 = enero)
+function temp(m,h){
+ const lo=HOT[m]-14,k=(1+Math.cos((h-16)*Math.PI/12))/2;let t=lo+(HOT[m]-lo)*k;
+ if(m>=5&&m<=8&&h>=13&&h<=19)t=Math.max(t,m===6||m===7?38:36); // jun-sep, 13-19 h: siempre calor extremo
+ return Math.round(t)}
+function heat(){
+ const d=$('#d').value,t=$('#t').value;if(!d||!t)return;
+ const T=temp(+d.split('-')[1]-1,+t.split(':')[0]);
+ const L=T>=35?['var(--hot)','🔥 Calor extremo','Alerta de calor extremo: evita la exposición al sol. Elige interiores (iglesia, pastelerías, polideportivo) o visita antes de las 11:00 o después de las 20:00.']
+ :T>=30?['var(--warm)','☀️ Calor alto','Lleva agua y gorra, busca la sombra de los parques y evita las horas centrales.']
+ :T>=20?['var(--ok)','😊 Agradable','Buen momento para recorrer Pinto a pie.']
+ :T>=10?['var(--cool)','🧥 Fresco','Lleva una chaqueta ligera: ideal para una ruta larga.']
+ :['var(--cool)','🥶 Frío','Abrígate o alterna paseos cortos con pastelerías.'];
+ $('#deg').textContent=T+' ºC';$('#lvl').textContent=L[1];$('#alert').textContent=L[2];$('#alert').style.setProperty('--lv',L[0]);
+ $('#mk').style.left=Math.min(100,Math.max(0,T/45*100))+'%';$('#goShade').hidden=T<30}
+const n=new Date();$('#d').value=n.toLocaleDateString('en-CA');$('#t').value=n.toTimeString().slice(0,5);
+['#d','#t'].forEach(s=>{$(s).addEventListener('input',heat);$(s).addEventListener('change',()=>{heat();checkin('plan')})});
+
+/* ===== Carrusel ===== */
+const tr=$('#track');
+tr.innerHTML=P.map(p=>`<figure><img alt="${p[1]}" data-id="${p[0]}" draggable="false"><figcaption>${p[1]}</figcaption></figure>`).join('');hydrate('#track');
+const go=d=>tr.scrollBy({left:d*(tr.firstElementChild.offsetWidth+16),behavior:'smooth'});
+function upd(){$('#prev').disabled=tr.scrollLeft<4;$('#next').disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-4}
+$('#prev').onclick=()=>go(-1);$('#next').onclick=()=>go(1);
+tr.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);
+tr.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();go(1)}if(e.key==='ArrowLeft'){e.preventDefault();go(-1)}});upd();
+
+/* ===== Máquina del tiempo ===== */
+const T2=[['juan','Pinto Madrid grabado antiguo'],['eboli','Torre de Éboli Pinto grabado antiguo'],['silos','Iglesia Santo Domingo de Silos Pinto fotografía antigua']];
+const PAST_URL={}; // Pega aquí tus grabados o fotos de archivo verificados, p. ej. {eboli:'https://…/grabado.jpg'}
+$('#tabs').innerHTML=T2.map((t,i)=>`<button class="btn ghost" data-i="${i}" aria-pressed="false">${P.find(p=>p[0]===t[0])[1]}</button>`).join('');
+async function tm(i){
+ const[id,pq]=T2[i],p=P.find(x=>x[0]===id);$$('#tabs button').forEach((b,j)=>b.setAttribute('aria-pressed',j===i));
+ const[now,u]=await Promise.all([imgOf(p),PAST_URL[id]||find(pq)]);
+ $('#now').src=now;$('#past').src=u||art(p[1]+' (recreación)');
+ $('#tmnote').textContent=u?'Imagen de "antes" localizada en Wikimedia Commons: comprueba su fecha y autoría o sustitúyela en PAST_URL.':'No se halló imagen de archivo abierta: se muestra una recreación. Añade tu grabado o foto en PAST_URL.'}
+$('#tabs').addEventListener('click',e=>{const b=e.target.closest('button');if(b)tm(+b.dataset.i)});
+$('#pos').addEventListener('input',e=>$('#cmp').style.setProperty('--pos',e.target.value+'%'));
+
+cards();pass();heat();tm(0);
+</script>
+</body>
+</html>
